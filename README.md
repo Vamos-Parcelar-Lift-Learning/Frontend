@@ -15,7 +15,7 @@
   </a>
 </p>
 
-## :information_source: Como utlizar
+## :information_source: Guia de instalação
 
 Para clonar e utilizar está aplicação, você irá precisar [Git](https://git-scm.com), [Node.js v10.16][nodejs] ou maior (Recomendamos a versão estável - LTS) + [Yarn v1.13][yarn] ou maior instalada em sua máquina. No seu terminal:
 
