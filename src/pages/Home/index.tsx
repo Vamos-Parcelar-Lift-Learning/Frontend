@@ -1,18 +1,30 @@
 import React from 'react';
 import HeaderButton from '../../components/HeaderButton/index';
 import InputSearch from '../../components/InputSearch/index';
+import ContainerLandingPage from '../../components/LandingPageBackgound/index';
+import CardLandingPage from '../../components/CardLandingPage/index';
 
 const Home: React.FC = () => {
   return (
-    <h1>
-      <HeaderButton left="741.3px" label="Login" />
-      <HeaderButton left="835.3px" label="Sign up" />
+    <div>
+      <HeaderButton name="login" label="Login" />
+      <HeaderButton name="signup" label="Sign up" />
       <InputSearch
-        left="68.66px"
-        top="312.6px"
+        name="InputSearch"
+        className="LandingInputSearch"
         placeholder="Insira o código localizador"
       />
-    </h1>
+      <ContainerLandingPage />
+      <div>
+        <CardLandingPage text="Escolha o que você quer pagar" />
+      </div>
+      <div>
+        <CardLandingPage text="Pague com o Pix" />
+      </div>
+      <div>
+        <CardLandingPage text="Receba Cashback" />
+      </div>
+    </div>
   );
 };
 

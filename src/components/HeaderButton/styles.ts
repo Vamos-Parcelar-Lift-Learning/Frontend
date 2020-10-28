@@ -1,17 +1,9 @@
 import styled from 'styled-components';
 
-// 'px' posição do componente na tela
-interface ButtonConfigurationProps {
-  left: '835.3px' | '741.3px';
-}
-
-export const ContainerButton = styled.button<ButtonConfigurationProps>`
+export const ContainerButton = styled.button`
   position: absolute;
-  display: grid;
   width: 77.6px;
   height: 32.62px;
-  left: ${props => props.left};
-  top: 51px;
   border: 3px solid #f5f7fe;
   border-radius: 60px;
   font-family: 'Montserrat';

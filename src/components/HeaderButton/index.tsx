@@ -2,24 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ContainerButton } from './styles';
 
-interface ButtonConfigurationProps {
-  left: '835.3px' | '741.3px';
-}
-
-interface LabelButton extends ButtonConfigurationProps {
+interface LabelButton {
   label: string;
+  name: string;
 }
 
-const HeaderButton: React.FC<LabelButton> = ({ label }, { left }) => {
+const HeaderButton: React.FC<LabelButton> = ({ label, name }) => {
   return (
     <div>
-      <ContainerButton left={left}>{label}</ContainerButton>
+      <ContainerButton className={name}>{label}</ContainerButton>
     </div>
   );
 };
 
 HeaderButton.propTypes = {
   label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 export default HeaderButton;
