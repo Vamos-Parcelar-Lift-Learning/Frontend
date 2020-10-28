@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 
 export const ContainerInputSearch = styled.input`
-  position: absolute;
-  display: inline;
   width: 432.6px;
   height: 57.46px;
   padding: 0px;
   border: 0px solid;
   border-radius: 20px;
-  font-family: 'Montserrat';
   line-height: 48px;
   letter-spacing: -0.52px;
   font-style: normal;

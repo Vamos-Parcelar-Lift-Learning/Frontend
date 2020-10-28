@@ -1,18 +1,18 @@
 import styled from 'styled-components';
+import colors from '../../styles/colors';
 
 export const ContainerButton = styled.button`
-  position: absolute;
   width: 77.6px;
   height: 32.62px;
   border: 3px solid #f5f7fe;
   border-radius: 60px;
-  font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: normal;
   color: #f5f7fe;
-  background-color: #5d64d3;
+  margin-left: 24px;
+  background-color: ${colors.primary};
 
   &::hover {
     background-color: #f5f7fe;
