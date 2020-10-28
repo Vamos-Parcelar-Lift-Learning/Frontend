@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 export default createGlobalStyle`
   html, body, #root {
     font-size: 10px;
-
+    height: 100%;
   }
 
   body {
@@ -15,6 +15,13 @@ export default createGlobalStyle`
     margin: 0;
     border: none;
     background: transparent;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
   }
 
   *:focus {
