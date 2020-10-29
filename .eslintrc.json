@@ -42,7 +42,8 @@
       }
     ],
     "no-use-before-define": "off",
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/prop-types": 0
   },
   "settings": {
     "import/resolver": {
