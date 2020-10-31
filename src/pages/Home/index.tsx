@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import HeaderButton from '../../components/HeaderButton/index';
 import InputSearch from '../../components/InputSearch/index';
 import CardLandingPage from '../../components/CardLandingPage/index';
@@ -25,7 +25,9 @@ const Home: React.FC = () => {
     <Container>
       <LeftContainer>
         <WrapperLogo>
-          <Logo src={Icons.LOGO_BLUE} />
+          <Link to="/">
+            <Logo src={Icons.LOGO_BLUE} />
+          </Link>
         </WrapperLogo>
 
         <WrapperTitle>
@@ -50,9 +52,12 @@ const Home: React.FC = () => {
 
       <RightContainer>
         <Header>
-          <span>Sobre nós</span>
-          <HeaderButton name="login" label="Login" />
-          <HeaderButton name="signup" label="Sign up" />
+          <Link to="/about_us">
+            <span>Sobre nós</span>
+          </Link>
+          <Link to="/login">
+            <HeaderButton name="login" label="Login" />
+          </Link>
         </Header>
 
         <ContainerCard>

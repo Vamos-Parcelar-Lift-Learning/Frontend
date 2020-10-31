@@ -9,7 +9,9 @@ const Sidebar: React.FC = () => {
   return (
     <Container>
       <WrapperLogo>
-        <Logo src={Icons.LOGO_WHITE} />
+        <Link to="/">
+          <Logo src={Icons.LOGO_WHITE} />
+        </Link>
       </WrapperLogo>
 
       <ContainerMenu>
