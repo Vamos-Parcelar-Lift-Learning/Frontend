@@ -1,31 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { ContainerInputSearch } from './styles';
+import Button from './SearchButton';
+import { ContainerInputSearch, Container } from './styles';
 
 interface LabelInputSearch {
   placeholder: string;
-  className: string;
   name: string;
 }
 
-const InputSearch: React.FC<LabelInputSearch> = ({
-  placeholder,
-  className,
-  name,
-}) => {
+const InputSearch: React.FC<LabelInputSearch> = ({ placeholder, name }) => {
   return (
-    <ContainerInputSearch
-      className={className}
-      placeholder={placeholder}
-      name={name}
-    />
+    <Container>
+      <ContainerInputSearch placeholder={placeholder} name={name} />
+      <Button />
+    </Container>
   );
-};
-
-InputSearch.propTypes = {
-  placeholder: PropTypes.string.isRequired,
-  className: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
 };
 
 export default InputSearch;

@@ -1,16 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { LandingPageCard } from './styles';
+import { LandingPageCard, CardText, CardImage } from './styles';
 
 interface LandingPageCard {
   text: string;
+  icon: any;
 }
 
-const CardLandingPage: React.FC<LandingPageCard> = ({ text }) => {
-  return <LandingPageCard>{text}</LandingPageCard>;
+const CardLandingPage: React.FC<LandingPageCard> = ({ text, icon }) => {
+  return (
+    <LandingPageCard>
+      <CardImage src={icon} />
+      <CardText>{text}</CardText>
+    </LandingPageCard>
+  );
 };
 
-CardLandingPage.propTypes = {
-  text: PropTypes.string.isRequired,
-};
 export default CardLandingPage;

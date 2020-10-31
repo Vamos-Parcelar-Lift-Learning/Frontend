@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ContainerButton } from './styles';
 
 interface LabelButton {
@@ -8,16 +7,7 @@ interface LabelButton {
 }
 
 const HeaderButton: React.FC<LabelButton> = ({ label, name }) => {
-  return (
-    <div>
-      <ContainerButton className={name}>{label}</ContainerButton>
-    </div>
-  );
-};
-
-HeaderButton.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  return <ContainerButton className={name}>{label}</ContainerButton>;
 };
 
 export default HeaderButton;
