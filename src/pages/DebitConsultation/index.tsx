@@ -13,7 +13,7 @@ import {
   InfoContainer,
   useStyles,
   CardTitle,
-  CardCheckbox,
+  CardCheckbox
 } from './styles';
 
 const Cart: React.FC = () => {
@@ -35,7 +35,7 @@ const Cart: React.FC = () => {
 
             <CollapseButton
               className={clsx(classes.expand, {
-                [classes.expandOpen]: expanded,
+                [classes.expandOpen]: expanded
               })}
               onClick={() => setExpanded(!expanded)}
               aria-expanded={expanded}
