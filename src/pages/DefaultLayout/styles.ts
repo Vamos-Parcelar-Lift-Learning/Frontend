@@ -4,7 +4,7 @@ import colors from '../../styles/colors';
 export const Wrapper = styled.div`
   display: flex;
   height: 100%;
-  background: ${colors.primary};
+  background: ${colors.PRIMARY};
   padding-top: 20px;
   padding-bottom: 20px;
   /* overflow: auto; */
