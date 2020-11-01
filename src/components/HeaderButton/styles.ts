@@ -14,7 +14,7 @@ export const ContainerButton = styled.button`
   margin-left: 24px;
   background-color: ${colors.primary};
 
-  &::hover {
+  &:hover {
     background-color: ${colors.fontPrimary};
     color: ${colors.primary};
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),

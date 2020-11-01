@@ -27,7 +27,7 @@ const InputLabelContainer = styled.div`
 
 const ImgContainer = styled.img`
   display: flex;
-  margin-top: 25px;
+  margin-top: 30px;
   margin-bottom: 5px;
   width: 170px;
   align-items: flex-start;
@@ -36,6 +36,13 @@ const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 10px;
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 42px;
+  align-items: center;
 `;
 
 const Container = styled.div`
@@ -52,4 +59,5 @@ export {
   InputContainer,
   ImgContainer,
   InputLabelContainer,
+  ButtonContainer,
 };
