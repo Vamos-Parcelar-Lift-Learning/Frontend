@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button } from '../../components';
+import Button from '../../components/Button';
+import InputEditProfile from '../../components/InputEditProfile';
 import {
   Title1,
   Title2,
@@ -7,8 +8,7 @@ import {
   Container,
   SubContainer,
   ContainerName,
-  ContainerData,
-  ContainerCPF
+  ContainerField
 } from './styles';
 import user from '../../images/user.png';
 
@@ -22,13 +22,14 @@ const EditProfile: React.FC = () => {
       </SubContainer>
       <ContainerName>
         <Title3>Nome:</Title3>
-      </ContainerName>
-      <ContainerData>
+        <ContainerField>
+          <InputEditProfile name="Name" placeholder="Digite seu Nome" />
+        </ContainerField>
         <Title3>Data de Nascimento:</Title3>
-      </ContainerData>
-      <ContainerCPF>
+        <InputEditProfile name="Birthday" placeholder="   /   /    " />
         <Title3>CPF:</Title3>
-      </ContainerCPF>
+        <InputEditProfile name="CPF" placeholder="Digite seu CPF" />
+      </ContainerName>
       <Button>Salvar</Button>
     </Container>
   );
