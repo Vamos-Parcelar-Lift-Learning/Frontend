@@ -4,7 +4,7 @@ import colors from '../../styles/colors';
 const Container = styled.div`
   height: 100%;
   width: 300px;
-  background: ${colors.primary};
+  background: ${colors.PRIMARY};
   display: flex;
   flex-direction: column;
 `;
