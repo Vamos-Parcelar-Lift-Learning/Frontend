@@ -11,6 +11,10 @@ const ContainerSearchButton = styled.button`
 
 const IconSearch = styled.img`
   width: 35px;
+  border-radius: 5px;
+  &:hover {
+    width: 40px;
+  }
 `;
 
 export { ContainerSearchButton, IconSearch };
