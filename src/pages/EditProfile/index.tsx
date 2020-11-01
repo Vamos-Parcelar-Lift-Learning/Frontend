@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from '../../components/Button';
 import InputEditProfile from '../../components/InputEditProfile';
+import Calendar from '../../components/Calendar';
+
 import {
   Title1,
   Title2,
@@ -25,10 +27,10 @@ const EditProfile: React.FC = () => {
         <ContainerField>
           <InputEditProfile name="Name" placeholder="Digite seu Nome" />
         </ContainerField>
-        <Title3>Data de Nascimento:</Title3>
-        <InputEditProfile name="Birthday" placeholder="   /   /    " />
         <Title3>CPF:</Title3>
         <InputEditProfile name="CPF" placeholder="Digite seu CPF" />
+        <Title3>Data de Nascimento:</Title3>
+        <Calendar />
       </ContainerName>
       <Button>Salvar</Button>
     </Container>
