@@ -6,10 +6,12 @@ import {
   CardDebit,
   CardContainer,
   InfoContainer,
+  InfoText,
   CardCheckbox,
   CardTitle,
   CollapseButton,
   useStyles,
+  CollapseInfo,
 } from './styles';
 
 const DebitCard: React.FC = () => {
@@ -40,8 +42,14 @@ const DebitCard: React.FC = () => {
       </CardContainer>
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <h1>sdaadsdsa</h1>
-        <h1>sdaadsdsa</h1>
+        <CollapseInfo>
+          <InfoText>Validade: 20/06/2020</InfoText>
+          <InfoText>DETRAN PB</InfoText>
+          <InfoText>
+            1. Deixar de dar preferência pedestre/veículo não motor na faixa
+            destinada.
+          </InfoText>
+        </CollapseInfo>
       </Collapse>
     </CardDebit>
   );

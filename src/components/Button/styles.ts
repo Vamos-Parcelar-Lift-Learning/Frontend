@@ -18,7 +18,7 @@ export const ButtonContainer = styled(Button)`
 
 export const useStyles = makeStyles({
   button: {
-    background: `linear-gradient(45deg, ${colors.TERTIARY} 5%, ${colors.PRIMARY} 90%)`,
+    background: colors.PRIMARY,
   },
   label: {
     textTransform: 'capitalize',

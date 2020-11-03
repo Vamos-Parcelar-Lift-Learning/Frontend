@@ -58,3 +58,16 @@ export const useStyles = makeStyles(theme => ({
     transform: 'rotate(180deg)',
   },
 }));
+
+export const InfoText = styled.span`
+  font-size: 15px;
+  color: ${colors.fontPrimary};
+  font-weight: 500;
+  margin-bottom: 10px;
+`;
+
+export const CollapseInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+`;
