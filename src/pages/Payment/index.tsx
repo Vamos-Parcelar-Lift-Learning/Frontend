@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Header } from '../../components';
+import React, { useState } from 'react';
+import { Button, Header, PaymentModal } from '../../components';
 import CARD_PIX from '../../assets/card_pix.svg';
 
 import {
@@ -16,6 +16,8 @@ import {
 } from './styles';
 
 const Payment: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <Container>
       <Header />
@@ -40,7 +42,12 @@ const Payment: React.FC = () => {
         <TitleField>Valor final:</TitleField>
         <TitleField style={{ fontWeight: 'bold' }}>R$ 790,00</TitleField>
       </CardContainer>
-      <Button style={{ marginTop: 20 }}>Pagar</Button>
+
+      <Button style={{ marginTop: 20 }} onClick={() => setOpen(true)}>
+        Pagar
+      </Button>
+
+      <PaymentModal open={open} setOpen={setOpen} />
     </Container>
   );
 };

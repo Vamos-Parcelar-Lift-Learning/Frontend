@@ -24,7 +24,9 @@ const DebitConsultation: React.FC = () => {
       </ListContainer>
 
       <Link to="/payment" style={{ textDecoration: 'none' }}>
-        <Button style={{ marginTop: 20 }}>Seguir</Button>
+        <Button style={{ marginTop: 20 }} onClick={() => {}}>
+          Seguir
+        </Button>
       </Link>
     </Container>
   );
