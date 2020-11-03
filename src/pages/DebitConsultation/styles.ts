@@ -14,6 +14,7 @@ export const ListContainer = styled.div`
   flex: 1;
   overflow-y: scroll;
   overflow-x: hidden;
+  margin-top: 5vh;
 `;
 
 export const Title = styled.span`
