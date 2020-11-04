@@ -6,7 +6,7 @@ interface ButtonProps {
   children: any;
   loading?: boolean;
   style: any;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
