@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { Container, ContainerMenu, Logo, WrapperLogo } from './styles';
 import { SidebarData } from './SidebarData';
 import SidebarButton from './SidebarButton';
-import logoWhite from '../../assets/logoWhite.svg';
+import { Icons } from '../../assets';
 
 const Sidebar: React.FC = () => {
   return (
     <Container>
       <WrapperLogo>
-        <Logo src={logoWhite} />
+        <Logo src={Icons.LOGO_WHITE} />
       </WrapperLogo>
 
       <ContainerMenu>
