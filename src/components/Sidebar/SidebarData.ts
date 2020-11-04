@@ -8,7 +8,7 @@ export const SidebarData = [
   {
     id: 2,
     title: 'Comprovantes',
-    path: '/proof',
+    path: '/receipt',
     cName: 'nav-text',
   },
   {
