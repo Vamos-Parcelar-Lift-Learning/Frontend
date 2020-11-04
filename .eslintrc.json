@@ -43,7 +43,9 @@
     ],
     "no-use-before-define": "off",
     "prettier/prettier": "error",
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-empty-function": "off"
   },
   "settings": {
     "import/resolver": {

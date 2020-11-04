@@ -3,17 +3,17 @@ import React from 'react';
 import { ButtonContainer, useStyles, Loading } from './styles';
 
 interface ButtonProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   children: any;
   loading?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   style: any;
+  onClick?: () => void;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   loading = false,
   style,
+  onClick,
 }) => {
   const classes = useStyles();
 
@@ -24,6 +24,7 @@ const Button: React.FC<ButtonProps> = ({
         root: classes.button,
         label: classes.label,
       }}
+      onClick={onClick}
     >
       {loading ? <Loading style={{ width: 25, height: 25 }} /> : children}
     </ButtonContainer>

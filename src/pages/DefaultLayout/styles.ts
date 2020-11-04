@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: flex;
   height: 100%;
-  background: ${colors.primary};
+  background: ${colors.PRIMARY};
   padding-top: 20px;
   padding-bottom: 20px;
   /* overflow: auto; */
 `;
 
-const BoxContainer = styled.div`
+export const BoxContainer = styled.div`
   display: flex;
   height: 100%;
   width: 100%;
@@ -20,5 +20,3 @@ const BoxContainer = styled.div`
 
   background: ${colors.fontPrimary};
 `;
-
-export { Wrapper, BoxContainer };

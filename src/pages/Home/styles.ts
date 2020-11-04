@@ -21,7 +21,7 @@ const LeftContainer = styled.div`
 const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background: ${colors.primary};
+  background: ${colors.PRIMARY};
   height: 94.4%;
   width: 100%;
   border-radius: 40px;
@@ -72,7 +72,7 @@ const Title = styled.h1`
   color: ${colors.grayDark};
 
   span {
-    color: ${colors.primary};
+    color: ${colors.PRIMARY};
     text-decoration: underline;
     margin-top: 3.5%;
     margin-left: 2%;

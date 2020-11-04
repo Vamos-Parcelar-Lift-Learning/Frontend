@@ -9,7 +9,7 @@ const TitleContainer = styled.div`
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
-  color: ${colors.primary};
+  color: ${colors.PRIMARY};
 `;
 
 const InputLabelContainer = styled.div`
@@ -22,7 +22,7 @@ const InputLabelContainer = styled.div`
   line-height: 29px;
   align-content: flex-start;
   margin: 5px 0px;
-  color: ${colors.primary}; ;
+  color: ${colors.PRIMARY}; ;
 `;
 
 const ImgContainer = styled.img`

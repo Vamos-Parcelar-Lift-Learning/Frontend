@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import colors from '../../../styles/colors';
 
 const Button = styled.button`
-  background-color: ${colors.primary};
+  background-color: ${colors.PRIMARY};
   color: ${colors.fontPrimary};
   border: 0;
   display: flex;
@@ -12,7 +12,7 @@ const Button = styled.button`
   height: 55px;
   &:hover {
     background-color: ${colors.fontPrimary};
-    color: ${colors.primary};
+    color: ${colors.PRIMARY};
     border-bottom-left-radius: 15px;
     border-top-left-radius: 15px;
     width: 260px;

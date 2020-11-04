@@ -8,24 +8,17 @@ export const Container = styled.div``;
 export const ButtonContainer = styled(Button)`
   && {
     color: ${colors.fontPrimary};
-    background-color: ${colors.primary};
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
+    background-color: ${colors.PRIMARY};
+    font-size: 14px;
     padding: 10px 100px;
     border-radius: 25px;
-    height: 3.5vw;
-    align-items: center;
-  }
-  &:hover {
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+    height: 48px;
   }
 `;
 
 export const useStyles = makeStyles({
   button: {
-    background: `linear-gradient(45deg, ${colors.tertiary} 5%, ${colors.primary} 90%)`,
+    background: colors.PRIMARY,
   },
   label: {
     textTransform: 'capitalize',

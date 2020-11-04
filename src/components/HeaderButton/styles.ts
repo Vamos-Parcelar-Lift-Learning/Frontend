@@ -12,11 +12,11 @@ export const ContainerButton = styled.button`
   line-height: normal;
   color: ${colors.fontPrimary};
   margin-left: 24px;
-  background-color: ${colors.primary};
+  background-color: ${colors.PRIMARY};
 
   &:hover {
     background-color: ${colors.fontPrimary};
-    color: ${colors.primary};
+    color: ${colors.PRIMARY};
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
       0 17px 50px 0 rgba(0, 0, 0, 0.19);
   }
