@@ -45,7 +45,7 @@ export const ReceiptItems = styled.tr`
 export const HeaderTr = styled.tr`
   display: flex;
   flex-direction: row;
-  background-color: ${colors.tertiary};
+  background-color: ${colors.TERTIARY};
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   color: ${colors.fontPrimary};
@@ -65,17 +65,17 @@ export const Title = styled.h1`
   font-weight: 500;
   font-size: 25px;
   line-height: 39px;
-  color: ${colors.primary};
+  color: ${colors.PRIMARY};
 `;
 
 export const Button = styled.button`
-  color: ${colors.primary};
+  color: ${colors.PRIMARY};
   font-family: 'Montserrat';
   font-style: normal;
   font-size: 15px;
   line-height: 18px;
   color: ${colors.fontPrimary};
-  background-color: ${colors.primary};
+  background-color: ${colors.PRIMARY};
   border-radius: 60px;
   padding: 5px 20px;
   cursor: pointer;
