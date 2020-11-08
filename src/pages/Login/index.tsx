@@ -6,6 +6,7 @@ import { Imgs } from '../../assets';
 import { loginValidationSchema } from './loginValidationSchema';
 import { useAuth } from '../../hooks/auth';
 // import { useToast } from '../../hooks/toast';
+
 import {
   Container,
   TitleContainer,
@@ -24,11 +25,10 @@ const LoginPage: React.FC = () => {
   const { signIn } = useAuth();
 
   const submitLogin = async (data: FormikValue) => {
-    console.log(data);
-    // await signIn({
-    //   email: data.email, // 'nayara.barros75@live.com'
-    //   password: data.password, // '747901'
-    // });
+    await signIn({
+      email: data.email, // 'nayara.barros75@live.com'
+      password: data.password, // '747901'
+    });
   };
 
   const formik = useFormik({
