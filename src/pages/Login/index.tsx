@@ -10,7 +10,7 @@ import {
   InputContainer,
   ImgContainer,
   InputLabelContainer,
-  ButtonContainer,
+  ButtonContainer
 } from './styles';
 
 // eslint-disable-next-line react/prop-types
