@@ -11,7 +11,10 @@ import {
   SubContainer,
   ContainerName,
   ContainerField,
-  Avatar
+  Avatar,
+  CashBack,
+  CashBackText,
+  ContainerImage
 } from './styles';
 import user from '../../images/user.png';
 
@@ -19,10 +22,15 @@ const EditProfile: React.FC = () => {
   return (
     <Container>
       <Title1>Editar Perfil</Title1>
-      <SubContainer>
-        <Avatar src={user} alt="Alterar Foto de Perfil" />
-        <Title2>Alterar Foto</Title2>
-      </SubContainer>
+      <ContainerImage>
+        <SubContainer>
+          <Avatar src={user} alt="Alterar Foto de Perfil" />
+          <Title2>Alterar Foto</Title2>
+        </SubContainer>
+        <CashBack>
+          <CashBackText>Cashback: R$ 20,00</CashBackText>
+        </CashBack>
+      </ContainerImage>
       <ContainerName>
         <Title3>Nome:</Title3>
         <ContainerField>

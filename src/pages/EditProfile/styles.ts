@@ -9,11 +9,18 @@ export const Container = styled.div`
   align-items: center;
 `;
 
+export const ContainerImage = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 25px;
+  align-items: center;
+`;
+
 export const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  width: 100%;
   padding: 25px;
 `;
 
@@ -74,4 +81,18 @@ export const Title1 = styled.span`
 export const Avatar = styled.img`
   width: 70px;
   height: 70px;
+`;
+
+export const CashBack = styled.div`
+  border: 2px solid ${colors.PRIMARY};
+  padding: 10px 35px;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+`;
+
+export const CashBackText = styled.span`
+  font-size: 20px;
+  color: ${colors.PRIMARY};
+  font-weight: 500;
 `;
