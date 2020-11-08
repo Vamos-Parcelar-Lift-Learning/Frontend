@@ -11,7 +11,7 @@ import {
   CardTitle,
   CollapseButton,
   useStyles,
-  CollapseInfo,
+  CollapseInfo
 } from './styles';
 
 const DebitCard: React.FC = () => {
@@ -30,7 +30,7 @@ const DebitCard: React.FC = () => {
 
           <CollapseButton
             className={clsx(classes.expand, {
-              [classes.expandOpen]: expanded,
+              [classes.expandOpen]: expanded
             })}
             onClick={() => setExpanded(!expanded)}
             aria-expanded={expanded}

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   RouteProps as RouteDOMProps,
-  Route as RouteDOM,
+  Route as RouteDOM
   // Redirect,
 } from 'react-router-dom';
 import DefaultLayout from '../pages/DefaultLayout';

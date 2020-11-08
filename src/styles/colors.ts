@@ -5,7 +5,7 @@ const colors = {
   grayDark: '#4B4E5C',
   grayLight: '#A1A5BC',
   fontPrimary: '#F5F7FE',
-  quaternary: '#E8EbFF',
+  quaternary: '#E8EbFF'
 };
 
 export default colors;

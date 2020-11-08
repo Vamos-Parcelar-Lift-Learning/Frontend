@@ -28,7 +28,6 @@
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
-    "react/prop-types": 0,
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -38,7 +37,9 @@
       }
     ],
     "no-use-before-define": "off",
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {
+      "endOfLine":"auto"
+    }],
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-empty-function": "off",
@@ -50,3 +51,5 @@
     }
   }
 }
+
+

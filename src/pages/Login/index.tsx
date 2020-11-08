@@ -13,7 +13,7 @@ import {
   InputContainer,
   ImgContainer,
   InputLabelContainer,
-  ButtonContainer,
+  ButtonContainer
 } from './styles';
 
 interface FormikValue {

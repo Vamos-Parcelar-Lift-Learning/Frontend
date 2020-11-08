@@ -5,7 +5,7 @@ import { ButtonContainer, useStyles, Loading } from './styles';
 interface ButtonProps {
   children: any;
   loading?: boolean;
-  style: any;
+  style?: any;
   onClick?: () => void;
 }
 
