@@ -5,13 +5,15 @@ import { ContainerInputSearch, Container } from './styles';
 interface LabelLoginInput {
   placeholder: string;
   name: string;
-  // value: string;
-  // onChange: any;
+  value: string;
+  onChange: (value: any) => void;
+  hasError?: string | false | undefined;
 }
 
 const LoginInput: React.FC<LabelLoginInput> = ({
   placeholder,
   name,
+  hasError,
   ...rest
 }) => {
   return (
