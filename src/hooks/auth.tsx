@@ -1,6 +1,8 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 
+import { useHistory } from 'react-router-dom';
 import api from '../services/api';
+import { useToast } from './toast';
 
 interface User {
   _id: string;
@@ -36,6 +38,9 @@ interface AuthContextData {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
+  const { addToast } = useToast();
+  const history = useHistory();
+
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@VPOnline:token');
     const user = localStorage.getItem('@VPOnline:user');
@@ -48,19 +53,35 @@ const AuthProvider: React.FC = ({ children }) => {
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({ email, password }) => {
-    const response = await api.post('sessions', { email, password });
-    console.log(response);
+  const signIn = useCallback(
+    async ({ email, password }) => {
+      try {
+        const response = await api.post('sessions', { email, password });
 
-    const { token, user } = response.data;
+        const { token, user } = response.data;
 
-    localStorage.setItem('@VPOnline:token', token);
-    localStorage.setItem('@VPOnline:user', JSON.stringify(user));
+        localStorage.setItem('@VPOnline:token', token);
+        localStorage.setItem('@VPOnline:user', JSON.stringify(user));
 
-    api.defaults.headers.authorization = `Bearer ${token}`;
+        api.defaults.headers.authorization = `Bearer ${token}`;
 
-    setData({ token, user });
-  }, []);
+        setData({ token, user });
+        addToast({
+          type: 'success',
+          title: 'Ótimo',
+          description: 'Login realizado com sucesso',
+        });
+        history.goBack();
+      } catch (err) {
+        addToast({
+          type: 'error',
+          title: 'Ops',
+          description: err.response.data.msg,
+        });
+      }
+    },
+    [history, addToast],
+  );
 
   const signOut = useCallback(() => {
     localStorage.removeItem('@VPOnline:token');
