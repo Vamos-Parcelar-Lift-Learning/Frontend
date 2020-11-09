@@ -37,12 +37,12 @@
       }
     ],
     "no-use-before-define": "off",
-    "prettier/prettier": ["error", {
-      "endOfLine":"auto"
-    }],
+    "prettier/prettier": "off",
     "react/prop-types": 0,
     "react/jsx-props-no-spreading": "off",
-    "@typescript-eslint/no-empty-function": "off"
+    "@typescript-eslint/no-empty-function": "off",
+    "camelcase": "off",
+    "no-underscore-dangle": "off"
   },
   "settings": {
     "import/resolver": {
