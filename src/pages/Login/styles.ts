@@ -22,7 +22,7 @@ const InputLabelContainer = styled.div`
   line-height: 29px;
   align-content: flex-start;
   margin: 5px 0px;
-  color: ${colors.PRIMARY}; ;
+  color: ${colors.PRIMARY};
 `;
 
 const ImgContainer = styled.img`
@@ -59,5 +59,5 @@ export {
   InputContainer,
   ImgContainer,
   InputLabelContainer,
-  ButtonContainer,
+  ButtonContainer
 };

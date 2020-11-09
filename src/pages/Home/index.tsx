@@ -1,10 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useCallback, useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
 import HeaderButton from '../../components/HeaderButton/index';
 import InputSearch from '../../components/InputSearch/index';
 import CardLandingPage from '../../components/CardLandingPage/index';
 import { Icons } from '../../assets';
 import { CARD_DATA } from '../../components/CardLandingPage/CardsData';
+import { useCart } from '../../hooks/cart';
+import { useToast } from '../../hooks/toast';
 
 import {
   Container,
@@ -17,10 +19,28 @@ import {
   Header,
   WrapperLogo,
   WrapperInputSearch,
-  WrapperTitle,
+  WrapperTitle
 } from './styles';
 
 const Home: React.FC = () => {
+  const { getLocator } = useCart();
+  const { addToast } = useToast();
+  const history = useHistory();
+  const [searchLocator, setSearchLocator] = useState('');
+
+  const handleLocator = useCallback(async () => {
+    try {
+      await getLocator(searchLocator);
+      history.push('/debit_consultation');
+    } catch (err) {
+      addToast({
+        type: 'error',
+        title: 'Ops',
+        description: 'Não foi possível pesquisar o localizador'
+      });
+    }
+  }, [history, getLocator, searchLocator, addToast]);
+
   return (
     <Container>
       <LeftContainer>
@@ -41,6 +61,9 @@ const Home: React.FC = () => {
           <InputSearch
             name="InputSearch"
             placeholder="Insira o código localizador"
+            onClick={handleLocator}
+            value={searchLocator}
+            onChange={setSearchLocator}
           />
         </WrapperInputSearch>
 
