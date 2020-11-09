@@ -9,5 +9,5 @@ export const loginValidationSchema = yup.object().shape({
     .string()
     .min(6, 'Senha não pode conter menos de 6 caracteres')
     .max(15, 'Senha não pode conter mais de 15 caracteres')
-    .required('Senha incorreta. Digite sua senha novamente!'),
+    .required('Senha incorreta. Digite sua senha novamente!')
 });

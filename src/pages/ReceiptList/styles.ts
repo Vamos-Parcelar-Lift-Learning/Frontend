@@ -11,7 +11,7 @@ export const Container = styled.div`
 `;
 
 export const Table = styled.table`
-  margin-top: 30px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -61,6 +61,7 @@ export const HeaderTr = styled.tr`
 `;
 
 export const Title = styled.h1`
+  margin-top: 25px;
   font-style: normal;
   font-weight: 500;
   font-size: 25px;
