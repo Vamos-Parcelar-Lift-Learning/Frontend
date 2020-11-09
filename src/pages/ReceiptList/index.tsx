@@ -1,41 +1,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import {
   Container,
   Table,
   Title,
   HeaderTr,
   ReceiptItems,
-  Button,
+  Button
 } from './styles';
+import Header from '../../components/Header';
 
 const receipts = [
   {
     name: 'ContaXablau',
     date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00',
+    amount: 'R$ 790, 00'
   },
   {
     name: 'ContaXablau',
     date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00',
+    amount: 'R$ 790, 00'
   },
   {
     name: 'ContaXablau',
     date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00',
+    amount: 'R$ 790, 00'
   },
   {
     name: 'ContaXablau',
     date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00',
-  },
+    amount: 'R$ 790, 00'
+  }
 ];
 
 const ReceiptList: React.FC = () => {
   return (
     <Container>
+      <Header />
       <Title>Histórico dos seus comprovantes</Title>
       <Table>
         <HeaderTr>

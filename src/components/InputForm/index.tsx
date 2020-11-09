@@ -2,7 +2,7 @@ import React from 'react';
 // import Button from './SearchButton';
 import { ContainerInputSearch, Container } from './styles';
 
-interface LabelLoginInput {
+interface LabelInputForm {
   placeholder: string;
   name: string;
   value: string;
@@ -10,7 +10,7 @@ interface LabelLoginInput {
   hasError?: string | false | undefined;
 }
 
-const LoginInput: React.FC<LabelLoginInput> = ({
+const InputForm: React.FC<LabelInputForm> = ({
   placeholder,
   name,
   hasError,
@@ -24,4 +24,4 @@ const LoginInput: React.FC<LabelLoginInput> = ({
   );
 };
 
-export default LoginInput;
+export default InputForm;

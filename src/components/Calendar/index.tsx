@@ -9,8 +9,21 @@ import {
 import { Container } from './styles';
 import colors from '../../styles/colors';
 
-const Calendar: React.FC = () => {
-  const [date, setDate] = React.useState<Date | null>(new Date());
+interface LabelCalendar {
+  placeholder: string;
+  name: string;
+  value: string;
+  onChange: (value: any) => void;
+  hasError?: string | false | undefined;
+}
+
+const Calendar: React.FC<LabelCalendar> = ({
+  placeholder,
+  name,
+  hasError,
+  ...rest
+}) => {
+  // const [date, setDate] = React.useState<Date | null>(new Date());
 
   return (
     <Container>
@@ -22,7 +35,7 @@ const Calendar: React.FC = () => {
             format="dd/MM/yyyy"
             margin="normal"
             id="date-picker-inline"
-            value={date}
+            // value={date}
             InputProps={{
               disableUnderline: true,
               style: {
@@ -30,10 +43,14 @@ const Calendar: React.FC = () => {
                 color: colors.grayLight
               }
             }}
-            onChange={newDate => setDate(newDate)}
+            // onChange={newDate => setDate(newDate)}
             KeyboardButtonProps={{
               'aria-label': 'change date'
             }}
+            placeholder={placeholder}
+            name={name}
+            {...rest}
+            disabled
           />
         </Grid>
       </MuiPickersUtilsProvider>

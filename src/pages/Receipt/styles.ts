@@ -5,21 +5,23 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  /* align-content: center; */
   align-items: center;
 `;
 
-export const Header = styled.div`
+export const HeaderReceipt = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   /* flex: 1; */
   margin-top: 50px;
   margin-bottom: 50px;
 `;
 
-export const Icon = styled.img``;
+export const ImgReceipt = styled.img``;
 
-export const Title = styled.h1``;
+export const Title = styled.h1`
+  color: ${colors.grayDark};
+`;
 export const FirstRowInfo = styled.div`
   display: flex;
   width: 100%;
@@ -39,8 +41,7 @@ export const SecondRowInfo = styled.div`
 
 export const ContainerButtons = styled.div`
   display: flex;
-  /* width: 50%; */
-  align-items: center;
+  flex: 1;
   align-items: center;
   flex-direction: column;
 `;
@@ -48,5 +49,6 @@ export const ContainerButtons = styled.div`
 export const FisrtButtonsContainer = styled.div`
   display: flex;
   width: 100%;
+  justify-content: space-between;
   flex-direction: row;
 `;

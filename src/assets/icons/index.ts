@@ -11,5 +11,5 @@ export default {
   ICON_QRCODE,
   ICON_SEARCH,
   LOGO_BLUE,
-  LOGO_WHITE,
+  LOGO_WHITE
 };
