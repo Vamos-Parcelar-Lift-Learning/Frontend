@@ -13,7 +13,7 @@ const Button: React.FC<ButtonProps> = ({
   children,
   loading = false,
   style,
-  onClick,
+  onClick
 }) => {
   const classes = useStyles();
 
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
       style={style}
       classes={{
         root: classes.button,
-        label: classes.label,
+        label: classes.label
       }}
       onClick={onClick}
     >

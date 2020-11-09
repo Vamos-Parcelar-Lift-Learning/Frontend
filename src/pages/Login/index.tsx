@@ -1,6 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import LoginInput from '../../components/LoginInput';
+import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
 import { Imgs } from '../../assets';
 import { loginValidationSchema } from './loginValidationSchema';
@@ -26,22 +26,22 @@ const LoginPage: React.FC = () => {
 
   const submitLogin = async (data: FormikValue) => {
     await signIn({
-      email: data.email, // 'nayara.barros75@live.com'
-      password: data.password, // '747901'
+      email: data.email,
+      password: data.password
     });
   };
 
   const formik = useFormik({
     initialValues: {
       email: '',
-      password: '',
+      password: ''
     },
     initialErrors: {
       email: ' ',
-      password: ' ',
+      password: ' '
     },
     validationSchema: loginValidationSchema,
-    onSubmit: submitLogin,
+    onSubmit: submitLogin
   });
 
   return (
@@ -51,7 +51,7 @@ const LoginPage: React.FC = () => {
 
       <InputContainer>
         <InputLabelContainer>Usuário:</InputLabelContainer>
-        <LoginInput
+        <InputForm
           name="User"
           value={formik.values.email}
           placeholder="Digite seu e-mail"
@@ -61,7 +61,7 @@ const LoginPage: React.FC = () => {
           hasError={formik.touched.email && formik.errors.email}
         />
         <InputLabelContainer>Senha:</InputLabelContainer>
-        <LoginInput
+        <InputForm
           value={formik.values.password}
           name="Password"
           placeholder="Digite sua senha"
