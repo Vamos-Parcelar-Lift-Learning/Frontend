@@ -1,7 +1,11 @@
 import React from 'react';
+import { useFormik } from 'formik';
 import Button from '../../components/Button';
-import InputEditProfile from '../../components/InputEditProfile';
+import InputForm from '../../components/InputForm';
 import Calendar from '../../components/Calendar';
+import api from '../../services/api';
+import { useAuth } from '../../hooks/auth';
+import { editProfileValidationSchema } from './editProfileValidationSchema';
 
 import {
   Title1,
@@ -16,15 +20,44 @@ import {
   CashBackText,
   ContainerImage
 } from './styles';
-import user from '../../images/user.png';
+import userPicture from '../../images/user.png';
+
+interface FormikValue {
+  name: string;
+  cpf: string;
+  birthdate: string;
+}
 
 const EditProfile: React.FC = () => {
+  const { user, updateUser } = useAuth();
+
+  // console.log('user-', user);
+  const submitEditProfile = async (data: FormikValue) => {
+    console.log('data', data);
+    const response = await api.put('/users', data);
+    updateUser(response.data);
+  };
+
+  const formik = useFormik({
+    initialValues: {
+      name: user.name,
+      cpf: user.cpf,
+      birthdate: user.birthdate
+    },
+    initialErrors: {
+      name: ' ',
+      cpf: ' '
+    },
+    validationSchema: editProfileValidationSchema,
+    onSubmit: submitEditProfile
+  });
+
   return (
     <Container>
       <Title1>Editar Perfil</Title1>
       <ContainerImage>
         <SubContainer>
-          <Avatar src={user} alt="Alterar Foto de Perfil" />
+          <Avatar src={userPicture} alt="Alterar Foto de Perfil" />
           <Title2>Alterar Foto</Title2>
         </SubContainer>
         <CashBack>
@@ -34,14 +67,38 @@ const EditProfile: React.FC = () => {
       <ContainerName>
         <Title3>Nome:</Title3>
         <ContainerField>
-          <InputEditProfile name="Name" placeholder="Digite seu Nome" />
+          <InputForm
+            name="Name"
+            value={formik.values.name}
+            placeholder="Digite seu Nome"
+            onChange={value => {
+              formik.setFieldValue('name', value.target.value);
+            }}
+            hasError={formik.touched.name && formik.errors.name}
+          />
         </ContainerField>
         <Title3>CPF:</Title3>
-        <InputEditProfile name="CPF" placeholder="Digite seu CPF" />
+        <InputForm
+          name="CPF"
+          value={formik.values.cpf}
+          placeholder="Digite seu CPF"
+          onChange={value => {
+            formik.setFieldValue('cpf', value.target.value);
+          }}
+          hasError={formik.touched.cpf && formik.errors.cpf}
+        />
         <Title3>Data de Nascimento:</Title3>
-        <Calendar />
+        <Calendar
+          value={formik.values.birthdate}
+          name="Birthdate"
+          placeholder="Digite sua senha"
+          onChange={value => {
+            formik.setFieldValue('birthdate', value.target.value);
+          }}
+          hasError={formik.touched.birthdate && formik.errors.birthdate}
+        />
       </ContainerName>
-      <Button>Salvar</Button>
+      <Button onClick={formik.submitForm}>Salvar</Button>
     </Container>
   );
 };
