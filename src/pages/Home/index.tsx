@@ -72,10 +72,7 @@ const Home: React.FC = () => {
           />
         </WrapperInputSearch>
 
-        <InfoTitle>
-          Utilize o número do localizador para consultar seus débitos. É
-          simples, basta digitar o código no campo de pesquisa acima.
-        </InfoTitle>
+        <InfoTitle>{t('infotitle')}</InfoTitle>
       </LeftContainer>
 
       <RightContainer>
