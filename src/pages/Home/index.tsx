@@ -65,7 +65,7 @@ const Home: React.FC = () => {
         <WrapperInputSearch>
           <InputSearch
             name="InputSearch"
-            placeholder="Insira o código localizador"
+            placeholder={t('locator')}
             onClick={handleLocator}
             value={searchLocator}
             onChange={setSearchLocator}
