@@ -66,6 +66,7 @@ const LoginPage: React.FC = () => {
             />
             <InputLabelContainer>Senha:</InputLabelContainer>
             <InputForm
+              type="password"
               value={formik.values.password}
               name="Password"
               placeholder="Digite sua senha"

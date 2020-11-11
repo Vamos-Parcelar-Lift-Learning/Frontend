@@ -7,6 +7,7 @@ interface LabelInputForm {
   name: string;
   value: string;
   onChange: (value: any) => void;
+  type?: string;
   hasError?: string | false | undefined;
 }
 
@@ -14,11 +15,12 @@ const InputForm: React.FC<LabelInputForm> = ({
   placeholder,
   name,
   hasError,
+  type,
   ...rest
 }) => {
   return (
     <Container>
-      <ContainerInputSearch placeholder={placeholder} name={name} {...rest} />
+      <ContainerInputSearch placeholder={placeholder} name={name} type={type} {...rest} />
       {/* <Button /> */}
     </Container>
   );
