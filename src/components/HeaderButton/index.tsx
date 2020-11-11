@@ -4,10 +4,11 @@ import { ContainerButton } from './styles';
 interface LabelButton {
   label: string;
   name: string;
+  style?: any;
 }
 
-const HeaderButton: React.FC<LabelButton> = ({ label, name }) => {
-  return <ContainerButton className={name}>{label}</ContainerButton>;
+const HeaderButton: React.FC<LabelButton> = ({ label, name, style }) => {
+  return <ContainerButton style={style} className={name}>{label}</ContainerButton>;
 };
 
 export default HeaderButton;

@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
 import { Imgs } from '../../assets';
+import HeaderButton  from '../../components/HeaderButton';
 import { loginValidationSchema } from './loginValidationSchema';
 import { useAuth } from '../../hooks/auth';
+import colors from '../../styles/colors';
 // import { useToast } from '../../hooks/toast';
 
 import {
@@ -15,6 +18,7 @@ import {
   InputLabelContainer,
   ButtonContainer,
   Wrapper,
+  Header,
   BoxContainer
 } from './styles';
 
@@ -49,6 +53,18 @@ const LoginPage: React.FC = () => {
   return (
     <Wrapper>
       <BoxContainer>
+        <Header>
+          <Link to="/">
+            <HeaderButton
+              style={{color: colors.PRIMARY,
+                background: colors.fontPrimary,
+                borderColor: colors.PRIMARY,
+                width: 80}}
+              name="home"
+              label="Voltar"
+            />
+          </Link>
+        </Header>
         <Container>
           <TitleContainer>Digite seus dados de Login</TitleContainer>
           <ImgContainer src={Imgs.LOGIN_IMAGE} />
