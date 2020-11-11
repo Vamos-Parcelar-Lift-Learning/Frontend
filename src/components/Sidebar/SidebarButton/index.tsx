@@ -4,11 +4,12 @@ import { Button, Text } from './styles';
 
 interface SidebarProps {
   title: string;
+  onClick?: any;
 }
 // eslint-disable-next-line react/prop-types
-const SidebarButton: React.FC<SidebarProps> = ({ title }) => {
+const SidebarButton: React.FC<SidebarProps> = ({ title, onClick }) => {
   return (
-    <Button>
+    <Button onClick={onClick}>
       <Text>{title}</Text>
     </Button>
   );
