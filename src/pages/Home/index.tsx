@@ -80,10 +80,10 @@ const Home: React.FC = () => {
           <Button onClick={() => changeLanguage('en')}>English</Button>
           <Button onClick={() => changeLanguage('pt')}>Português</Button>
           <Link to="/about_us">
-            <span>Sobre nós</span>
+            <span>{t('about')}</span>
           </Link>
           <Link to="/login">
-            <HeaderButton name="login" label="Login" />
+            <HeaderButton name="login" label={t('login')} />
           </Link>
         </Header>
 
