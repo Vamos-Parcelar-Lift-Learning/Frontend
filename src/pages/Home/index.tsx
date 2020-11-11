@@ -1,5 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import Button from '@material-ui/core/Button/Button';
 import HeaderButton from '../../components/HeaderButton/index';
 import InputSearch from '../../components/InputSearch/index';
 import CardLandingPage from '../../components/CardLandingPage/index';
@@ -41,6 +43,12 @@ const Home: React.FC = () => {
     }
   }, [history, getLocator, searchLocator, addToast]);
 
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
+
   return (
     <Container>
       <LeftContainer>
@@ -51,10 +59,7 @@ const Home: React.FC = () => {
         </WrapperLogo>
 
         <WrapperTitle>
-          <Title>
-            Faça o pagamento dos seus débitos
-            <span>fácil|</span>
-          </Title>
+          <Title>{t('title')}</Title>
         </WrapperTitle>
 
         <WrapperInputSearch>
@@ -75,6 +80,8 @@ const Home: React.FC = () => {
 
       <RightContainer>
         <Header>
+          <Button onClick={() => changeLanguage('en')}>English</Button>
+          <Button onClick={() => changeLanguage('pt')}>Português</Button>
           <Link to="/about_us">
             <span>Sobre nós</span>
           </Link>
