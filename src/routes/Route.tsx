@@ -1,20 +1,25 @@
 import React from 'react';
 import {
   RouteProps as RouteDOMProps,
-  Route as RouteDOM
+  Route as RouteDOM,
+  Switch
   // Redirect,
 } from 'react-router-dom';
+import { isMatch } from 'date-fns/esm';
 import DefaultLayout from '../pages/DefaultLayout';
 import Home from '../pages/Home';
+import Login from '../pages/Login'
 
 interface RouteProps extends RouteDOMProps {
   isPrivate?: boolean;
+  hasSidebar?: boolean;
   component: React.ComponentType;
 }
 
 const Route: React.FC<RouteProps> = ({
   // eslint-disable-next-line react/prop-types
   isPrivate = false,
+  hasSidebar = false,
   // eslint-disable-next-line react/prop-types
   component: Component,
   ...rest
@@ -36,11 +41,21 @@ const Route: React.FC<RouteProps> = ({
       render={() => {
         // return isPrivate && signed ? (
         return isPrivate ? (
-          <Layout>
+          hasSidebar ? (
+            <Layout>
+              <Component />
+            </Layout>
+          ):(
             <Component />
-          </Layout>
+          )
         ) : (
-          <Home />
+          hasSidebar ? (
+            <Layout>
+              <Component />
+            </Layout>
+          ):(
+            <Component />
+          )
         );
       }}
     />

@@ -42,7 +42,8 @@
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-empty-function": "off",
     "camelcase": "off",
-    "no-underscore-dangle": "off"
+    "no-underscore-dangle": "off",
+    "no-nested-ternary" : "off"
   },
   "settings": {
     "import/resolver": {

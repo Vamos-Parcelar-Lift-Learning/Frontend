@@ -61,3 +61,22 @@ export {
   InputLabelContainer,
   ButtonContainer
 };
+
+export const Wrapper = styled.div`
+  display: flex;
+  height: 100%;
+  background: ${colors.PRIMARY};
+  padding: 20px;
+  /* overflow: auto; */
+`;
+
+export const BoxContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin-right: 10px;
+  border-radius: 60px;
+  padding: 40px;
+
+  background: ${colors.fontPrimary};
+`;
