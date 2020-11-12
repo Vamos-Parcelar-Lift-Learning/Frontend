@@ -9,6 +9,15 @@ export const Container = styled.div`
   align-items: center;
 `;
 
+export const InputLocatorContainer = styled.div`
+  display: flex;
+  flex: 1;
+  margin-top: 10px;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+`;
+
 export const ListContainer = styled.div`
   width: 100%;
   flex: 1;
