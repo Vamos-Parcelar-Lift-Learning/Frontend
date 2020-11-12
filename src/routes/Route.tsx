@@ -2,13 +2,9 @@ import React from 'react';
 import {
   RouteProps as RouteDOMProps,
   Route as RouteDOM,
-  Switch
   // Redirect,
 } from 'react-router-dom';
-import { isMatch } from 'date-fns/esm';
 import DefaultLayout from '../pages/DefaultLayout';
-import Home from '../pages/Home';
-import Login from '../pages/Login'
 
 interface RouteProps extends RouteDOMProps {
   isPrivate?: boolean;
@@ -50,9 +46,9 @@ const Route: React.FC<RouteProps> = ({
           )
         ) : (
           hasSidebar ? (
-            <Layout>
-              <Component />
-            </Layout>
+
+            <Component />
+
           ):(
             <Component />
           )
