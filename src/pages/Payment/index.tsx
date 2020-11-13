@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Header, PaymentModal } from '../../components';
+import { Button, Header, PaymentModal, SelectInput, CartInput } from '../../components';
 import CARD_PIX from '../../assets/card_pix.svg';
 
 import {
@@ -13,6 +13,8 @@ import {
   TitleField,
   FieldContainer,
   FieldValue,
+  TitleCard,
+  SelectContainer
 } from './styles';
 
 const Payment: React.FC = () => {
@@ -25,6 +27,13 @@ const Payment: React.FC = () => {
         <Card>
           <Title>PIX</Title>
           <CardPix src={CARD_PIX} />
+          <SelectContainer>
+            <TitleCard>Tipo de chave:</TitleCard>
+            <SelectInput />
+            <TitleCard>Chave</TitleCard>
+            <CartInput  />
+          </SelectContainer>
+
           <ValueContainer>
             <ValueText>Valor original: </ValueText>
             <ValueText>R$ 180,00</ValueText>
@@ -38,6 +47,7 @@ const Payment: React.FC = () => {
         </FieldContainer>
       </CardContainer>
 
+
       <CardContainer>
         <TitleField>Valor final:</TitleField>
         <TitleField style={{ fontWeight: 'bold' }}>R$ 790,00</TitleField>
@@ -48,6 +58,7 @@ const Payment: React.FC = () => {
       </Button>
 
       <PaymentModal open={open} setOpen={setOpen} />
+
     </Container>
   );
 };
