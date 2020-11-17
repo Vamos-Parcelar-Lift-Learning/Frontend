@@ -74,7 +74,7 @@ const AuthProvider: React.FC = ({ children }) => {
           title: 'Ótimo',
           description: 'Login realizado com sucesso'
         });
-        history.goBack();
+        history.push('debit_consultation');
       } catch (err) {
         addToast({
           type: 'error',
