@@ -112,7 +112,7 @@ const LoginPage: React.FC = () => {
             />
             <ButtonContainer>
               <Button style={{ width: 20 }} onClick={formik.submitForm}>
-                {t('button')}
+                {t('button_next')}
               </Button>
             </ButtonContainer>
           </InputContainer>
