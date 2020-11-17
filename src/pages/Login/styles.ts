@@ -52,6 +52,14 @@ const Container = styled.div`
   height: 100%;
   width: 100%;
 `;
+const Header = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px;
+`;
 
 export {
   TitleContainer,
@@ -59,7 +67,8 @@ export {
   InputContainer,
   ImgContainer,
   InputLabelContainer,
-  ButtonContainer
+  ButtonContainer,
+  Header
 };
 
 export const Wrapper = styled.div`

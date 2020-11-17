@@ -1,5 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import colors from '../../styles/colors';
 import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
 import { Imgs } from '../../assets';
@@ -15,7 +17,8 @@ import {
   InputLabelContainer,
   ButtonContainer,
   Wrapper,
-  BoxContainer
+  BoxContainer,
+  Header
 } from './styles';
 
 interface FormikValue {
@@ -25,6 +28,11 @@ interface FormikValue {
 
 const LoginPage: React.FC = () => {
   const { signIn } = useAuth();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
 
   const submitLogin = async (data: FormikValue) => {
     await signIn({
@@ -50,25 +58,47 @@ const LoginPage: React.FC = () => {
     <Wrapper>
       <BoxContainer>
         <Container>
-          <TitleContainer>Digite seus dados de Login</TitleContainer>
+          <Header>
+            <Button
+              style={{color: colors.PRIMARY,
+                background: colors.fontPrimary,
+                borderColor: colors.PRIMARY,
+                width: 0}}
+              onClick={() => changeLanguage('en')}
+            >
+              English
+
+            </Button>
+            <Button
+              style={{color: colors.PRIMARY,
+                background: colors.fontPrimary,
+                borderColor: colors.PRIMARY,
+                width: 0}}
+              onClick={() => changeLanguage('pt')}
+            >
+              Português
+
+            </Button>
+          </Header>
+          <TitleContainer>{t('Digite seus dados de Login')}</TitleContainer>
           <ImgContainer src={Imgs.LOGIN_IMAGE} />
 
           <InputContainer>
-            <InputLabelContainer>Usuário:</InputLabelContainer>
+            <InputLabelContainer>{t('Usuário:')}</InputLabelContainer>
             <InputForm
               name="User"
               value={formik.values.email}
-              placeholder="Digite seu e-mail"
+              placeholder={t('Digite seu e-mail')}
               onChange={value => {
             formik.setFieldValue('email', value.target.value);
           }}
               hasError={formik.touched.email && formik.errors.email}
             />
-            <InputLabelContainer>Senha:</InputLabelContainer>
+            <InputLabelContainer>{t('Senha:')}</InputLabelContainer>
             <InputForm
               value={formik.values.password}
               name="Password"
-              placeholder="Digite sua senha"
+              placeholder={t('Digite sua senha')}
               onChange={value => {
             formik.setFieldValue('password', value.target.value);
           }}
@@ -76,7 +106,7 @@ const LoginPage: React.FC = () => {
             />
             <ButtonContainer>
               <Button style={{ width: 20 }} onClick={formik.submitForm}>
-                Seguir
+                {t('Seguir')}
               </Button>
             </ButtonContainer>
           </InputContainer>
