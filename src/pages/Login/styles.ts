@@ -5,7 +5,6 @@ const TitleContainer = styled.div`
   display: flex;
   align-content: flex-start;
   text-align: center;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
@@ -15,7 +14,6 @@ const TitleContainer = styled.div`
 const InputLabelContainer = styled.div`
   display: flex;
   flex: 1;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -27,7 +25,7 @@ const InputLabelContainer = styled.div`
 
 const ImgContainer = styled.img`
   display: flex;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 5px;
   width: 170px;
   align-items: flex-start;
@@ -41,7 +39,7 @@ const InputContainer = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 42px;
+  margin-top: 30px;
   align-items: center;
 `;
 
@@ -54,11 +52,10 @@ const Container = styled.div`
 `;
 const Header = styled.div`
   display: flex;
-  width: 100%;
+  width: 98%;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
-  padding: 10px;
 `;
 
 export {
@@ -81,11 +78,10 @@ export const Wrapper = styled.div`
 
 export const BoxContainer = styled.div`
   display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
-  margin-right: 10px;
   border-radius: 60px;
-  padding: 40px;
-
+  padding: 10px;
   background: ${colors.fontPrimary};
 `;

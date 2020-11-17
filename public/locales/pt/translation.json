@@ -4,5 +4,10 @@
   "locator": "Insira o código localizador",
   "about": "Sobre nós",
   "login": "Entrar",
-  "titlelogin": "Digite seus dados de Login"
+  "titlelogin": "Digite seus dados de Login",
+  "user": "Usuário:",
+  "user_email": "Digite seu e-mail",
+  "password": "Senha:",
+  "user_password": "Digite sua senha",
+  "button_next": "Seguir"
 }

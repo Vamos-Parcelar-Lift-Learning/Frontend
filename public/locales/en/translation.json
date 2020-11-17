@@ -4,5 +4,10 @@
   "locator": "Enter the locator code",
   "about": "About us",
   "login": "Login",
-  "titlelogin": "Enter your login details"
+  "titlelogin": "Enter your login details",
+  "user": "User:",
+  "user_email": "Enter your e-mail",
+  "password": "Password:",
+  "user_password": "Enter your password",
+  "button_next": "Login"
 }
