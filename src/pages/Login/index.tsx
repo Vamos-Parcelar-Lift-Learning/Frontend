@@ -28,11 +28,6 @@ interface FormikValue {
 
 const LoginPage: React.FC = () => {
   const { signIn } = useAuth();
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language);
-  };
 
   const submitLogin = async (data: FormikValue) => {
     await signIn({
@@ -53,6 +48,12 @@ const LoginPage: React.FC = () => {
     validationSchema: loginValidationSchema,
     onSubmit: submitLogin
   });
+
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
 
   return (
     <Wrapper>
@@ -80,7 +81,7 @@ const LoginPage: React.FC = () => {
 
             </Button>
           </Header>
-          <TitleContainer>{t('Digite seus dados de Login')}</TitleContainer>
+          <TitleContainer>{t('titlelogin')}</TitleContainer>
           <ImgContainer src={Imgs.LOGIN_IMAGE} />
 
           <InputContainer>

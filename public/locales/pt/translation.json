@@ -3,5 +3,6 @@
   "infotitle": "Utilize o número do localizador para consultar seus débitos. É simples, basta digitar o código no campo de pesquisa acima",
   "locator": "Insira o código localizador",
   "about": "Sobre nós",
-  "login": "Entrar"
+  "login": "Entrar",
+  "titlelogin": "Digite seus dados de Login"
 }
