@@ -9,6 +9,7 @@ import { isMatch } from 'date-fns/esm';
 import DefaultLayout from '../pages/DefaultLayout';
 import Home from '../pages/Home';
 import Login from '../pages/Login'
+import { Wrapper, BoxContainer } from './styles'
 
 interface RouteProps extends RouteDOMProps {
   isPrivate?: boolean;
@@ -46,7 +47,11 @@ const Route: React.FC<RouteProps> = ({
               <Component />
             </Layout>
           ):(
-            <Component />
+            <Wrapper>
+              <BoxContainer>
+                <Component />
+              </BoxContainer>
+            </Wrapper>
           )
         ) : (
           hasSidebar ? (
@@ -54,7 +59,11 @@ const Route: React.FC<RouteProps> = ({
               <Component />
             </Layout>
           ):(
-            <Component />
+            <Wrapper>
+              <BoxContainer>
+                <Component />
+              </BoxContainer>
+            </Wrapper>
           )
         );
       }}

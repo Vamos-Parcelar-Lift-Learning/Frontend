@@ -47,42 +47,38 @@ const LoginPage: React.FC = () => {
   });
 
   return (
-    <Wrapper>
-      <BoxContainer>
-        <Container>
-          <TitleContainer>Digite seus dados de Login</TitleContainer>
-          <ImgContainer src={Imgs.LOGIN_IMAGE} />
+    <Container>
+      <TitleContainer>Digite seus dados de Login</TitleContainer>
+      <ImgContainer src={Imgs.LOGIN_IMAGE} />
 
-          <InputContainer>
-            <InputLabelContainer>Usuário:</InputLabelContainer>
-            <InputForm
-              name="User"
-              value={formik.values.email}
-              placeholder="Digite seu e-mail"
-              onChange={value => {
+      <InputContainer>
+        <InputLabelContainer>Usuário:</InputLabelContainer>
+        <InputForm
+          name="User"
+          value={formik.values.email}
+          placeholder="Digite seu e-mail"
+          onChange={value => {
             formik.setFieldValue('email', value.target.value);
           }}
-              hasError={formik.touched.email && formik.errors.email}
-            />
-            <InputLabelContainer>Senha:</InputLabelContainer>
-            <InputForm
-              value={formik.values.password}
-              name="Password"
-              placeholder="Digite sua senha"
-              onChange={value => {
+          hasError={formik.touched.email && formik.errors.email}
+        />
+        <InputLabelContainer>Senha:</InputLabelContainer>
+        <InputForm
+          value={formik.values.password}
+          name="Password"
+          placeholder="Digite sua senha"
+          onChange={value => {
             formik.setFieldValue('password', value.target.value);
           }}
-              hasError={formik.touched.password && formik.errors.password}
-            />
-            <ButtonContainer>
-              <Button style={{ width: 20 }} onClick={formik.submitForm}>
-                Seguir
-              </Button>
-            </ButtonContainer>
-          </InputContainer>
-        </Container>
-      </BoxContainer>
-    </Wrapper>
+          hasError={formik.touched.password && formik.errors.password}
+        />
+        <ButtonContainer>
+          <Button style={{ width: 20 }} onClick={formik.submitForm}>
+            Seguir
+          </Button>
+        </ButtonContainer>
+      </InputContainer>
+    </Container>
   );
 };
 
