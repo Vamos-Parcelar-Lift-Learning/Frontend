@@ -8,7 +8,7 @@ export const ContainerInputSearch = styled.input`
   letter-spacing: -0.52px;
   line-height: 48px;
   font-style: normal;
-  text-indent: 62px;
+  text-indent: 30px;
   text-align: justify;
   font-weight: 200;
   font-size: 18px;
