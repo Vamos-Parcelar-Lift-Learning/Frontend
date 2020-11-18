@@ -56,41 +56,11 @@ const EditProfile: React.FC = () => {
     onSubmit: submitEditProfile
   });
 
-  const { t, i18n } = useTranslation();
-
-  const changeLanguage = (language: string) => {
-    i18n.changeLanguage(language);
-  };
-
+  const { t } = useTranslation();
   return (
     <Container>
       <Title1>{t('titleeditarperfil')}</Title1>
-      <Header>
-        <Button
-          style={{color: colors.PRIMARY,
-                background: 'transparent',
-                padding: 0,
-                margin: 10,
-                borderColor: colors.PRIMARY,
-                width: 'auto'}}
-          onClick={() => changeLanguage('en')}
-        >
-          English
-
-        </Button>
-        <Button
-          style={{color: colors.PRIMARY,
-                background: 'transparent',
-                padding: 0,
-                margin: 10,
-                borderColor: colors.PRIMARY,
-                width: 'auto'}}
-          onClick={() => changeLanguage('pt')}
-        >
-          Português
-
-        </Button>
-      </Header>
+      <Header />
       <ContainerImage>
         <SubContainer>
           <Avatar src={userPicture} alt="Alterar Foto de Perfil" />
