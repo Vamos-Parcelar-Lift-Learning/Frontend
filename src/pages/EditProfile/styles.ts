@@ -96,3 +96,15 @@ export const CashBackText = styled.span`
   color: ${colors.PRIMARY};
   font-weight: 500;
 `;
+
+const Header = styled.div`
+  display: flex;
+  width: 98%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+export {
+  Header
+};

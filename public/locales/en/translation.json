@@ -9,5 +9,13 @@
   "user_email": "Enter your e-mail",
   "password": "Password:",
   "user_password": "Enter your password",
-  "button_next": "Login"
+  "button_next": "Login",
+  "titleeditarperfil" : "Edit Profile",
+  "editarphoto" : "Edit Photo",
+  "titleeditname" : "Name",
+  "dateofbirth": "Date of Birth :",
+  "editname" : "Type your Name",
+  "editcpf" : "Type your TIN",
+  "savebutton": "Save",
+  "editcpftitle": "TIN:"
 }

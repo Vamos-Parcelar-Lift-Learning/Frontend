@@ -9,5 +9,13 @@
   "user_email": "Digite seu e-mail",
   "password": "Senha:",
   "user_password": "Digite sua senha",
-  "button_next": "Seguir"
+  "button_next": "Seguir",
+  "titleeditarperfil" : "Editar Perfil",
+  "editarphoto" : "Alterar Foto",
+  "titleeditname" : "Nome",
+  "dateofbirth": "Data de Nascimento :",
+  "editname" : "Digite seu Nome",
+  "editcpf" : "Digite seu CPF",
+  "savebutton": "Salvar",
+  "editcpftitle": "CPF:"
 }
