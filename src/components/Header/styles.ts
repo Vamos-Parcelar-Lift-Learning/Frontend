@@ -7,7 +7,6 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
   justify-content: space-between;
   align-content: flex-start;
   align-self: initial;
@@ -36,10 +35,9 @@ export const CashBackText = styled.span`
   font-weight: 500;
 `;
 
-export const Avatar = styled.div`
-  border: 2px solid ${colors.PRIMARY};
-  padding: 30px;
-  border-radius: 35px;
+export const Avatar = styled.img`
+  width: 70px;
+  height: 70px;
 `;
 
 export const CardImage = styled.img`

@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  align-items: center;
+  padding: 10px 30px;
 `;
 
 export const InputLocatorContainer = styled.div`
