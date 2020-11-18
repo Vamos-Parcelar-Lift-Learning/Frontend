@@ -1,6 +1,6 @@
 import React from 'react';
 // import Button from './SearchButton';
-import { ContainerInputSearch, Container } from './styles';
+import { ContainerInputSearch, Container, LabelError } from './styles';
 
 interface LabelInputForm {
   placeholder: string;
@@ -18,11 +18,20 @@ const InputForm: React.FC<LabelInputForm> = ({
   type,
   ...rest
 }) => {
+  console.log('hasError', hasError);
+  // console.log('rest', ...rest);
   return (
-    <Container>
-      <ContainerInputSearch placeholder={placeholder} name={name} type={type} {...rest} />
-      {/* <Button /> */}
-    </Container>
+    <>
+      <Container>
+        <ContainerInputSearch
+          placeholder={placeholder}
+          name={name}
+          type={type}
+          {...rest}
+        />
+      </Container>
+      {hasError && <LabelError>{hasError}</LabelError>}
+    </>
   );
 };
 
