@@ -28,5 +28,12 @@
   "total_payment": "Total payment",
   "print": "PRINT",
   "share": "SHARE",
-  "return": "BACK TO START"
+  "return": "BACK TO START",
+  "receiptlisttitle": "History of your vouchers",
+  "receiptlistdata": "Date",
+  "receiptlistname": "Name",
+  "receiptlistvalue": "Value",
+  "receiptlistbutton": "Visualize"
+
+
 }

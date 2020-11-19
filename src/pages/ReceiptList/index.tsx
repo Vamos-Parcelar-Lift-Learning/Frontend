@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 import {
   Container,
   Table,
@@ -34,15 +36,17 @@ const receipts = [
 ];
 
 const ReceiptList: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
       <Header />
-      <Title>Histórico dos seus comprovantes</Title>
+      <Title>{t('receiptlisttitle')}</Title>
       <Table>
         <HeaderTr>
-          <th>Data</th>
-          <th>Nome</th>
-          <th>Valor</th>
+          <th>{t('receiptlistdata')}</th>
+          <th>{t('receiptlistname')}</th>
+          <th>{t('receiptlistvalue')}</th>
           <th> </th>
         </HeaderTr>
         {receipts.map(receipt => (
@@ -53,7 +57,7 @@ const ReceiptList: React.FC = () => {
             {/* <td>{receipt.amount}</td> */}
             <Link to="/receiptDetail">
               {/* <Link to={`/receipt/${encodeURIComponent(receipt.name)}`}> */}
-              <Button>Visualizar</Button>
+              <Button>{t('receiptlistbutton')}</Button>
             </Link>
           </ReceiptItems>
         ))}

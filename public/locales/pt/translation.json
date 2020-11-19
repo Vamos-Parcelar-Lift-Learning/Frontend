@@ -28,5 +28,10 @@
   "total_payment": "Total pago",
   "print": "IMPRIMIR",
   "share": "COMPARTILHAR",
-  "return": "VOLTAR PARA O INICIO"
+  "return": "VOLTAR PARA O INICIO",
+  "receiptlisttitle": "Histórico dos seus comprovantes",
+  "receiptlistdata": "Data",
+  "receiptlistname": "Nome",
+  "receiptlistvalue": "Valor",
+  "receiptlistbutton": "Visualizar"
 }
