@@ -35,5 +35,8 @@
   "receiptlistvalue": "Valor",
   "receiptlistbutton": "Visualizar",
   "debitconsultationtitle": "Débitos rastreados",
-  "debitconsultationbutton": "Seguir"
+  "debitconsultationbutton": "Seguir",
+  "paymentoriginalvalue": "Valor original:",
+  "paymentfinalvalue": "Valor final:",
+  "paymentbutton": "Pagar"
 }

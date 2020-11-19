@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button, Header, PaymentModal } from '../../components';
 import CARD_PIX from '../../assets/card_pix.svg';
 
@@ -16,6 +17,7 @@ import {
 } from './styles';
 
 const Payment: React.FC = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
   return (
@@ -26,7 +28,9 @@ const Payment: React.FC = () => {
           <Title>PIX</Title>
           <CardPix src={CARD_PIX} />
           <ValueContainer>
-            <ValueText>Valor original: </ValueText>
+            <ValueText>
+              {t('paymentoriginalvalue')}
+            </ValueText>
             <ValueText>R$ 180,00</ValueText>
           </ValueContainer>
         </Card>
@@ -39,12 +43,13 @@ const Payment: React.FC = () => {
       </CardContainer>
 
       <CardContainer>
-        <TitleField>Valor final:</TitleField>
+        <TitleField>{t('paymentfinalvalue')}</TitleField>
+
         <TitleField style={{ fontWeight: 'bold' }}>R$ 790,00</TitleField>
       </CardContainer>
 
       <Button style={{ marginTop: 20 }} onClick={() => setOpen(true)}>
-        Pagar
+        {t('paymentbutton')}
       </Button>
 
       <PaymentModal open={open} setOpen={setOpen} />

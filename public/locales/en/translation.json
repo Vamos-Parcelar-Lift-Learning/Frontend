@@ -35,8 +35,8 @@
   "receiptlistvalue": "Value",
   "receiptlistbutton": "Visualize",
   "debitconsultationtitle": "Tracked debts",
-  "debitconsultationbutton": "Proceed"
-
-
-
+  "debitconsultationbutton": "Proceed",
+  "paymentoriginalvalue": "Original value:",
+  "paymentfinalvalue": "Final value:",
+  "paymentbutton": "Pay up"
 }
