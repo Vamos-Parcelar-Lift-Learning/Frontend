@@ -33,7 +33,10 @@
   "receiptlistdata": "Date",
   "receiptlistname": "Name",
   "receiptlistvalue": "Value",
-  "receiptlistbutton": "Visualize"
+  "receiptlistbutton": "Visualize",
+  "debitconsultationtitle": "Tracked debts",
+  "debitconsultationbutton": "Proceed"
+
 
 
 }

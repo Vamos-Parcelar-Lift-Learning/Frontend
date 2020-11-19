@@ -33,5 +33,7 @@
   "receiptlistdata": "Data",
   "receiptlistname": "Nome",
   "receiptlistvalue": "Valor",
-  "receiptlistbutton": "Visualizar"
+  "receiptlistbutton": "Visualizar",
+  "debitconsultationtitle": "Débitos rastreados",
+  "debitconsultationbutton": "Seguir"
 }

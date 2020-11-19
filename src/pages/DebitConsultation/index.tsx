@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import {  useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button, DebitCard, Header } from '../../components';
 import { Container, ListContainer, Title } from './styles';
 import { useCart } from '../../hooks/cart';
@@ -18,10 +19,13 @@ const DebitConsultation: React.FC = () => {
     }
   }, [history, user]);
 
+  const { t } = useTranslation();
+
+
   return (
     <Container>
       <Header />
-      <Title>Débitos rastreados</Title>
+      <Title>{t('debitconsultationtitle')}</Title>
       <ListContainer>
         {locator?.locators?.bills && locator?.locators?.bills.map(bill => (
           <DebitCard key={bill.code} bill={bill} />
@@ -29,7 +33,7 @@ const DebitConsultation: React.FC = () => {
       </ListContainer>
 
       <Button style={{ marginTop: 20 }} onClick={handleNext}>
-        Seguir
+        {t('debitconsultationbutton')}
       </Button>
     </Container>
   );
