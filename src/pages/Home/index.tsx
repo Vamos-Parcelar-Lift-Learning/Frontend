@@ -1,15 +1,17 @@
 import React, { useCallback, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import Button from '@material-ui/core/Button/Button';
-import HeaderButton from '../../components/HeaderButton/index';
+import Button from '../../components/Button';
+import HeaderButton from '../../components/HeaderButton';
 import InputSearch from '../../components/InputSearch/index';
-import CardLandingPage from '../../components/CardLandingPage/index';
+import CardLandingPage from '../../components/CardLandingPage';
 import { Icons } from '../../assets';
 import { CARD_DATA } from '../../components/CardLandingPage/CardsData';
 import { useCart } from '../../hooks/cart';
 import { useToast } from '../../hooks/toast';
+import colors from '../../styles/colors';
 import { useAuth } from '../../hooks/auth';
+
 
 import {
   Container,
@@ -30,6 +32,7 @@ import {
 const Home: React.FC = () => {
   const { getLocator } = useCart();
   const { addToast } = useToast();
+  const { t, i18n } = useTranslation();
   const history = useHistory();
   const [searchLocator, setSearchLocator] = useState('');
 
@@ -48,8 +51,6 @@ const Home: React.FC = () => {
       });
     }
   }, [history, getLocator, searchLocator, addToast]);
-
-  const { t, i18n } = useTranslation();
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
@@ -83,8 +84,35 @@ const Home: React.FC = () => {
 
       <RightContainer>
         <Header>
-          <Button onClick={() => changeLanguage('en')}>English</Button>
-          <Button onClick={() => changeLanguage('pt')}>Português</Button>
+          <Button
+            style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 0,
+                borderColor: colors.PRIMARY,
+                width: 'auto',
+                fontstyle: 'normal',
+                fontweight: 500,
+                }}
+            onClick={() => changeLanguage('en')}
+          >
+            English
+
+          </Button>
+          <Button
+            style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 0,
+                borderColor: colors.PRIMARY,
+                width: 'auto',
+                fontstyle: 'normal',
+                fontweight: 500,}}
+            onClick={() => changeLanguage('pt')}
+          >
+            Português
+
+          </Button>
           <Link to="/about_us">
             <span>{t('about')}</span>
           </Link>

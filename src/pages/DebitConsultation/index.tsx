@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import {  useHistory } from 'react-router-dom';
-import { Button, DebitCard, Header} from '../../components';
-import InputSearch from '../../components/InputSearch';
+import { useTranslation } from 'react-i18next';
+import { Button, DebitCard, Header } from '../../components';
 import { Container, ListContainer, Title, InputLocatorContainer } from './styles';
+import InputSearch from '../../components/InputSearch';
 import { useCart } from '../../hooks/cart';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
@@ -23,6 +24,8 @@ const DebitConsultation: React.FC = () => {
     }
   }, [history, user]);
 
+
+const { t } = useTranslation();
   const handleLocator = useCallback(async () => {
     try {
       await getLocator(searchLocator);
@@ -36,21 +39,20 @@ const DebitConsultation: React.FC = () => {
     }
   }, [history, getLocator, searchLocator, addToast]);
 
+
   return (
     <Container>
       <Header />
       <InputLocatorContainer>
         <InputSearch
           name="InputSearch"
-          placeholder="Insira o código localizador"
+          placeholder={t('debitsearchlocator')}
           onClick={handleLocator}
           value={searchLocator}
           onChange={setSearchLocator}
         />
-
       </InputLocatorContainer>
-
-      <Title>Débitos rastreados</Title>
+      <Title>{t('debitconsultationtitle')}</Title>
       <ListContainer>
         {locator?.locators?.bills && locator?.locators?.bills.map(bill => (
           <DebitCard key={bill.code} bill={bill} />
@@ -58,7 +60,7 @@ const DebitConsultation: React.FC = () => {
       </ListContainer>
 
       <Button name="ToPayment" style={{ marginTop: 20 }} onClick={handleNext}>
-        Seguir
+        {t('debitconsultationbutton')}
       </Button>
     </Container>
   );

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import colors from '../../styles/colors';
 import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
 import { Imgs } from '../../assets';
 import HeaderButton  from '../../components/HeaderButton';
 import { loginValidationSchema } from './loginValidationSchema';
 import { useAuth } from '../../hooks/auth';
-import colors from '../../styles/colors';
 // import { useToast } from '../../hooks/toast';
 
 import {
@@ -18,8 +19,8 @@ import {
   InputLabelContainer,
   ButtonContainer,
   Wrapper,
-  Header,
-  BoxContainer
+  BoxContainer,
+  Header
 } from './styles';
 
 interface FormikValue {
@@ -50,40 +51,86 @@ const LoginPage: React.FC = () => {
     onSubmit: submitLogin
   });
 
-  return (
-    <Container>
-      <TitleContainer>Digite seus dados de Login</TitleContainer>
-      <ImgContainer src={Imgs.LOGIN_IMAGE} />
+  const { t, i18n } = useTranslation();
 
-      <InputContainer>
-        <InputLabelContainer>Usuário:</InputLabelContainer>
-        <InputForm
-          name="User"
-          value={formik.values.email}
-          placeholder="Digite seu e-mail"
-          onChange={value => {
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
+
+  return (
+    <>
+      <Header>
+        <Link to="/">
+          <HeaderButton
+            style={{color: colors.PRIMARY,
+                background: colors.fontPrimary,
+                borderColor: colors.PRIMARY,
+                width: 80}}
+            name="home"
+            label="Voltar"
+          />
+          <Button
+            style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+            onClick={() => changeLanguage('en')}
+          >
+            English
+
+          </Button>
+          <Button
+            style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+            onClick={() => changeLanguage('pt')}
+          >
+            Português
+
+          </Button>
+
+        </Link>
+      </Header>
+      <Container>
+
+        <TitleContainer>{t('titlelogin')}</TitleContainer>
+        <ImgContainer src={Imgs.LOGIN_IMAGE} />
+
+        <InputContainer>
+          <InputLabelContainer>{t('user')}</InputLabelContainer>
+          <InputForm
+            name="User"
+            value={formik.values.email}
+            placeholder={t('user_email')}
+            onChange={value => {
             formik.setFieldValue('email', value.target.value);
           }}
-          hasError={formik.touched.email && formik.errors.email}
-        />
-        <InputLabelContainer>Senha:</InputLabelContainer>
-        <InputForm
-          type="password"
-          value={formik.values.password}
-          name="Password"
-          placeholder="Digite sua senha"
-          onChange={value => {
+            hasError={formik.touched.email && formik.errors.email}
+          />
+          <InputLabelContainer>{t('password')}</InputLabelContainer>
+          <InputForm
+            type="password"
+            value={formik.values.password}
+            name="Password"
+            placeholder={t('user_password')}
+            onChange={value => {
             formik.setFieldValue('password', value.target.value);
           }}
-          hasError={formik.touched.password && formik.errors.password}
-        />
-        <ButtonContainer>
-          <Button style={{ width: 20 }} onClick={formik.submitForm}>
-            Seguir
-          </Button>
-        </ButtonContainer>
-      </InputContainer>
-    </Container>
+            hasError={formik.touched.password && formik.errors.password}
+          />
+          <ButtonContainer>
+            <Button style={{ width: 20 }} onClick={formik.submitForm}>
+              {t('button_next')}
+            </Button>
+          </ButtonContainer>
+        </InputContainer>
+      </Container>
+    </>
   );
 };
 

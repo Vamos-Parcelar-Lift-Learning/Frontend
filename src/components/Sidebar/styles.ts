@@ -16,6 +16,16 @@ const ContainerMenu = styled.div`
   margin-left: 30px;
 `;
 
+const TranslateButton = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: 50px;
+  flex-direction: row;
+  align-items: center;
+  justify-self: flex-start;
+  justify-content: space-evenly;
+`;
+
 const Logo = styled.img`
   width: 170px;
 `;
@@ -32,4 +42,4 @@ const WrapperLogo = styled.div`
   flex-direction: column;
 `;
 
-export { Container, ContainerMenu, Logo, WrapperLogo };
+export { Container, ContainerMenu, Logo, WrapperLogo, TranslateButton };

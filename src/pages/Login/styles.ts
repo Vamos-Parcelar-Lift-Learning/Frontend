@@ -5,7 +5,6 @@ const TitleContainer = styled.div`
   display: flex;
   align-content: flex-start;
   text-align: center;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 600;
   font-size: 22px;
@@ -15,7 +14,6 @@ const TitleContainer = styled.div`
 const InputLabelContainer = styled.div`
   display: flex;
   flex: 1;
-  font-family: Montserrat;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -71,11 +69,11 @@ const Wrapper = styled.div`
 
 const BoxContainer = styled.div`
   display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
   border-radius: 60px;
-  padding: 40px;
-
+  padding: 10px;
   background: ${colors.fontPrimary};
 `;
 

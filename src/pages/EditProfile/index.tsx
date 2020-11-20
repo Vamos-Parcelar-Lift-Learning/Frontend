@@ -1,6 +1,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 import { formatISO } from 'date-fns';
+import colors from '../../styles/colors';
 import Button from '../../components/Button';
 import InputForm from '../../components/InputForm';
 import Calendar from '../../components/Calendar';
@@ -19,7 +21,9 @@ import {
   Avatar,
   CashBack,
   CashBackText,
-  ContainerImage
+  ContainerImage,
+  Header
+
 } from './styles';
 import userPicture from '../../images/user.png';
 
@@ -52,42 +56,44 @@ const EditProfile: React.FC = () => {
     onSubmit: submitEditProfile
   });
 
+  const { t } = useTranslation();
   return (
     <Container>
-      <Title1>Editar Perfil</Title1>
+      <Title1>{t('titleeditarperfil')}</Title1>
+      <Header />
       <ContainerImage>
         <SubContainer>
           <Avatar src={userPicture} alt="Alterar Foto de Perfil" />
-          <Title2>Alterar Foto</Title2>
+          <Title2>{t('editarphoto')}</Title2>
         </SubContainer>
         <CashBack>
           <CashBackText>Cashback: R$ 20,00</CashBackText>
         </CashBack>
       </ContainerImage>
       <ContainerName>
-        <Title3>Nome:</Title3>
+        <Title3>{t('titleeditname')}</Title3>
         <ContainerField>
           <InputForm
             name="Name"
             value={formik.values.name}
-            placeholder="Digite seu Nome"
+            placeholder={t('editname')}
             onChange={value => {
               formik.setFieldValue('name', value.target.value);
             }}
             hasError={formik.touched.name && formik.errors.name}
           />
         </ContainerField>
-        <Title3>CPF:</Title3>
+        <Title3>{t('editcpftitle')}</Title3>
         <InputForm
           name="CPF"
           value={formik.values.cpf}
-          placeholder="Digite seu CPF"
+          placeholder={t('editcpf')}
           onChange={value => {
             formik.setFieldValue('cpf', value.target.value);
           }}
           hasError={formik.touched.cpf && formik.errors.cpf}
         />
-        <Title3>Data de Nascimento:</Title3>
+        <Title3>{t('dateofbirth')}</Title3>
         <Calendar
           value={formik.values.birthdate}
           name="Birthdate"
@@ -98,7 +104,7 @@ const EditProfile: React.FC = () => {
           hasError={formik.touched.birthdate && formik.errors.birthdate}
         />
       </ContainerName>
-      <Button onClick={formik.submitForm}>Salvar</Button>
+      <Button onClick={formik.submitForm}>{t('savebutton')}</Button>
     </Container>
   );
 };
