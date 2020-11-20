@@ -61,30 +61,6 @@ const LoginPage: React.FC = () => {
     <Wrapper>
       <BoxContainer>
         <Header>
-          <Button
-            style={{color: colors.PRIMARY,
-                background: 'transparent',
-                padding: 0,
-                margin: 10,
-                borderColor: colors.PRIMARY,
-                width: 'auto'}}
-            onClick={() => changeLanguage('en')}
-          >
-            English
-
-          </Button>
-          <Button
-            style={{color: colors.PRIMARY,
-                background: 'transparent',
-                padding: 0,
-                margin: 10,
-                borderColor: colors.PRIMARY,
-                width: 'auto'}}
-            onClick={() => changeLanguage('pt')}
-          >
-            Português
-
-          </Button>
           <Link to="/">
             <HeaderButton
               style={{color: colors.PRIMARY,
@@ -94,6 +70,31 @@ const LoginPage: React.FC = () => {
               name="home"
               label="Voltar"
             />
+            <Button
+              style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+              onClick={() => changeLanguage('en')}
+            >
+              English
+
+            </Button>
+            <Button
+              style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+              onClick={() => changeLanguage('pt')}
+            >
+              Português
+
+            </Button>
+
           </Link>
         </Header>
         <Container>
