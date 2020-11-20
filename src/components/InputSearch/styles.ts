@@ -16,7 +16,7 @@ export const ContainerInputSearch = styled.input`
   color: rgb(0, 0, 0, 0.5);
   border: none;
   &:focus {
-    color: rgb(0, 0, 0, 1);
+    color: rgb(0, 0, 0, 7);
   }
 `;
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { Container, ContainerMenu, Logo, WrapperLogo, TranslateButton} from './styles';
+import { useAuth } from '../../hooks/auth';
 import { SidebarData } from './SidebarData';
 import SidebarButton from './SidebarButton';
 import Button from "../Button";
@@ -15,6 +16,7 @@ const Sidebar: React.FC = () => {
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
   };
+  const { signOut } = useAuth();
 
   return (
     <Container>
@@ -24,15 +26,29 @@ const Sidebar: React.FC = () => {
 
       <ContainerMenu>
         {SidebarData.map(item => {
-          return (
-            <Link
-              to={item.path}
-              key={item.id}
-              style={{ textDecoration: 'none' }}
-            >
-              <SidebarButton title={item.title} />
-            </Link>
-          );
+          if(item.signOut){
+            return (
+              <Link
+                to={item.path}
+                key={item.id}
+                style={{ textDecoration: 'none' }}
+              >
+                <SidebarButton title={item.title} onClick={signOut} />
+              </Link>
+            );
+
+          }
+
+            return (
+              <Link
+                to={item.path}
+                key={item.id}
+                style={{ textDecoration: 'none' }}
+              >
+                <SidebarButton title={item.title} />
+              </Link>
+            );
+
         })}
         <TranslateButton>
           <Button

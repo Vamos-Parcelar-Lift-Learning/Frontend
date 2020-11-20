@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { formatISO } from 'date-fns';
 import colors from '../../styles/colors';
 import Button from '../../components/Button';
 import InputForm from '../../components/InputForm';
@@ -37,7 +38,6 @@ const EditProfile: React.FC = () => {
 
   // console.log('user-', user);
   const submitEditProfile = async (data: FormikValue) => {
-    console.log('data', data);
     const response = await api.put('/users', data);
     updateUser(response.data);
   };
@@ -99,7 +99,7 @@ const EditProfile: React.FC = () => {
           name="Birthdate"
           placeholder="Digite sua senha"
           onChange={value => {
-            formik.setFieldValue('birthdate', value.target.value);
+            formik.setFieldValue('birthdate', formatISO(value));
           }}
           hasError={formik.touched.birthdate && formik.errors.birthdate}
         />

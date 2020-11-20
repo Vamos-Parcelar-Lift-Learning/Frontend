@@ -23,8 +23,6 @@ const Calendar: React.FC<LabelCalendar> = ({
   hasError,
   ...rest
 }) => {
-  // const [date, setDate] = React.useState<Date | null>(new Date());
-
   return (
     <Container>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -35,7 +33,6 @@ const Calendar: React.FC<LabelCalendar> = ({
             format="dd/MM/yyyy"
             margin="normal"
             id="date-picker-inline"
-            // value={date}
             InputProps={{
               disableUnderline: true,
               style: {
@@ -43,14 +40,12 @@ const Calendar: React.FC<LabelCalendar> = ({
                 color: colors.grayLight
               }
             }}
-            // onChange={newDate => setDate(newDate)}
             KeyboardButtonProps={{
               'aria-label': 'change date'
             }}
             placeholder={placeholder}
             name={name}
             {...rest}
-            disabled
           />
         </Grid>
       </MuiPickersUtilsProvider>

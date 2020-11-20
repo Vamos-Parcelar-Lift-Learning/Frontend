@@ -64,7 +64,7 @@ export const Title = styled.h1`
   margin-top: 25px;
   font-style: normal;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 39px;
   color: ${colors.PRIMARY};
 `;

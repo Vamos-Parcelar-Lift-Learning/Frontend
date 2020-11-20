@@ -12,8 +12,8 @@ export const HeaderReceipt = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* flex: 1; */
-  margin-top: 50px;
+  flex: 1;
+  margin-top: 30px;
   margin-bottom: 50px;
 `;
 
@@ -36,7 +36,7 @@ export const SecondRowInfo = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 0 150px;
-  margin: 100px;
+  margin: 70px;
 `;
 
 export const ContainerButtons = styled.div`
@@ -49,6 +49,7 @@ export const ContainerButtons = styled.div`
 export const FisrtButtonsContainer = styled.div`
   display: flex;
   width: 100%;
+  margin-bottom: 10px;
   justify-content: space-between;
   flex-direction: row;
 `;

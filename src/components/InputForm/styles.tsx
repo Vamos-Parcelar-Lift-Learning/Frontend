@@ -37,3 +37,9 @@ export const Container = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   }
 `;
+
+export const LabelError = styled.label`
+  display: flex;
+  color: ${colors.danger};
+  font-size: 13px;
+`;

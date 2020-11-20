@@ -1,6 +1,7 @@
 import React from 'react';
 import { Icons } from '../../assets';
 import { Logo } from '../Sidebar/styles';
+import userPicture from '../../images/user.png';
 
 import {
   Container,
@@ -25,7 +26,7 @@ const Header: React.FC = () => {
           <CashBackText>Cashback: R$ 20,00</CashBackText>
         </CashBack>
       </CashBackContainer>
-      <Avatar />
+      <Avatar src={userPicture} />
     </Container>
   );
 };

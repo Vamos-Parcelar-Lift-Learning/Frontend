@@ -10,17 +10,20 @@ import Payment from '../pages/Payment';
 import LoginPage from '../pages/Login';
 import AboutUs from '../pages/AboutUs';
 
-
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={Home} />
-    <Route path="/login" exact component={LoginPage}  />
-    <Route path="/debit_consultation" component={DebitConsultation} hasSidebar isPrivate />
+    <Route path="/login" exact isLogin component={LoginPage} />
+    <Route
+      path="/debit_consultation"
+      component={DebitConsultation}
+      hasSidebar
+      isPrivate
+    />
     <Route path="/receipt" component={ReceiptList} hasSidebar isPrivate />
     <Route path="/receiptDetail" component={Receipt} hasSidebar isPrivate />
     <Route path="/edit_profile" component={EditProfile} hasSidebar isPrivate />
     <Route path="/payment" component={Payment} hasSidebar isPrivate />
-    <Route path="/about_us" component={AboutUs} hasSidebar isPrivate />
     {/* <Route path="/home" component={Home} isPrivate /> */}
   </Switch>
 );

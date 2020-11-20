@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import colors from '../../styles/colors';
 import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
 import { Imgs } from '../../assets';
+import HeaderButton  from '../../components/HeaderButton';
 import { loginValidationSchema } from './loginValidationSchema';
 import { useAuth } from '../../hooks/auth';
 // import { useToast } from '../../hooks/toast';
@@ -83,6 +85,16 @@ const LoginPage: React.FC = () => {
             Português
 
           </Button>
+          <Link to="/">
+            <HeaderButton
+              style={{color: colors.PRIMARY,
+                background: colors.fontPrimary,
+                borderColor: colors.PRIMARY,
+                width: 80}}
+              name="home"
+              label="Voltar"
+            />
+          </Link>
         </Header>
         <Container>
 
@@ -102,6 +114,7 @@ const LoginPage: React.FC = () => {
             />
             <InputLabelContainer>{t('password')}</InputLabelContainer>
             <InputForm
+              type="password"
               value={formik.values.password}
               name="Password"
               placeholder={t('user_password')}
