@@ -2,10 +2,10 @@ import React from 'react';
 import {
   RouteProps as RouteDOMProps,
   Route as RouteDOM,
-  Switch,
   Redirect
 } from 'react-router-dom';
 import DefaultLayout from '../pages/DefaultLayout';
+import { Wrapper, BoxContainer } from './styles'
 import { useAuth } from '../hooks/auth';
 
 interface RouteProps extends RouteDOMProps {
@@ -45,15 +45,25 @@ const Route: React.FC<RouteProps> = ({
             <Layout>
               <Component />
             </Layout>
-          ) : (
-            <Component />
+          ):(
+            <Wrapper>
+              <BoxContainer>
+                <Component />
+              </BoxContainer>
+            </Wrapper>
           )
-        ) : hasSidebar ? (
-          <Layout>
-            <Component />
-          </Layout>
         ) : (
-          <Component />
+          hasSidebar ? (
+            <Layout>
+              <Component />
+            </Layout>
+          ):(
+            <Wrapper>
+              <BoxContainer>
+                <Component />
+              </BoxContainer>
+            </Wrapper>
+          )
         );
       }}
     />

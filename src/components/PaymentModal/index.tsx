@@ -11,6 +11,7 @@ interface PaymentModalProps {
 const PaymentModal: React.FC<PaymentModalProps> = ({ open, setOpen }) => {
   return (
     <Dialog
+      id="PaymentQRCODE"
       onClose={() => setOpen(false)}
       aria-labelledby="simple-dialog-title"
       open={open}

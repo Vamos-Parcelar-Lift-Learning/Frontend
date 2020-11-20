@@ -7,18 +7,21 @@ interface ButtonProps {
   loading?: boolean;
   style?: any;
   onClick?: () => void;
+  name?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   loading = false,
   style,
-  onClick
+  onClick,
+  name = '',
 }) => {
   const classes = useStyles();
 
   return (
     <ButtonContainer
+      name={name}
       style={style}
       classes={{
         root: classes.button,

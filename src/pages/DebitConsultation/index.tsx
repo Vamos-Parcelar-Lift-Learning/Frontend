@@ -59,7 +59,7 @@ const { t } = useTranslation();
         ))}
       </ListContainer>
 
-      <Button style={{ marginTop: 20 }} onClick={handleNext}>
+      <Button name="ToPayment" style={{ marginTop: 20 }} onClick={handleNext}>
         {t('debitconsultationbutton')}
       </Button>
     </Container>

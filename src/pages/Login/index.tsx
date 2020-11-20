@@ -58,81 +58,79 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Wrapper>
-      <BoxContainer>
-        <Header>
-          <Link to="/">
-            <HeaderButton
-              style={{color: colors.PRIMARY,
+    <>
+      <Header>
+        <Link to="/">
+          <HeaderButton
+            style={{color: colors.PRIMARY,
                 background: colors.fontPrimary,
                 borderColor: colors.PRIMARY,
                 width: 80}}
-              name="home"
-              label="Voltar"
-            />
-            <Button
-              style={{color: colors.PRIMARY,
+            name="home"
+            label="Voltar"
+          />
+          <Button
+            style={{color: colors.PRIMARY,
                 background: 'transparent',
                 padding: 0,
                 margin: 10,
                 borderColor: colors.PRIMARY,
                 width: 'auto'}}
-              onClick={() => changeLanguage('en')}
-            >
-              English
+            onClick={() => changeLanguage('en')}
+          >
+            English
 
-            </Button>
-            <Button
-              style={{color: colors.PRIMARY,
+          </Button>
+          <Button
+            style={{color: colors.PRIMARY,
                 background: 'transparent',
                 padding: 0,
                 margin: 10,
                 borderColor: colors.PRIMARY,
                 width: 'auto'}}
-              onClick={() => changeLanguage('pt')}
-            >
-              Português
+            onClick={() => changeLanguage('pt')}
+          >
+            Português
 
-            </Button>
+          </Button>
 
-          </Link>
-        </Header>
-        <Container>
+        </Link>
+      </Header>
+      <Container>
 
-          <TitleContainer>{t('titlelogin')}</TitleContainer>
-          <ImgContainer src={Imgs.LOGIN_IMAGE} />
+        <TitleContainer>{t('titlelogin')}</TitleContainer>
+        <ImgContainer src={Imgs.LOGIN_IMAGE} />
 
-          <InputContainer>
-            <InputLabelContainer>{t('user')}</InputLabelContainer>
-            <InputForm
-              name="User"
-              value={formik.values.email}
-              placeholder={t('user_email')}
-              onChange={value => {
+        <InputContainer>
+          <InputLabelContainer>{t('user')}</InputLabelContainer>
+          <InputForm
+            name="User"
+            value={formik.values.email}
+            placeholder={t('user_email')}
+            onChange={value => {
             formik.setFieldValue('email', value.target.value);
           }}
-              hasError={formik.touched.email && formik.errors.email}
-            />
-            <InputLabelContainer>{t('password')}</InputLabelContainer>
-            <InputForm
-              type="password"
-              value={formik.values.password}
-              name="Password"
-              placeholder={t('user_password')}
-              onChange={value => {
+            hasError={formik.touched.email && formik.errors.email}
+          />
+          <InputLabelContainer>{t('password')}</InputLabelContainer>
+          <InputForm
+            type="password"
+            value={formik.values.password}
+            name="Password"
+            placeholder={t('user_password')}
+            onChange={value => {
             formik.setFieldValue('password', value.target.value);
           }}
-              hasError={formik.touched.password && formik.errors.password}
-            />
-            <ButtonContainer>
-              <Button style={{ width: 20 }} onClick={formik.submitForm}>
-                {t('button_next')}
-              </Button>
-            </ButtonContainer>
-          </InputContainer>
-        </Container>
-      </BoxContainer>
-    </Wrapper>
+            hasError={formik.touched.password && formik.errors.password}
+          />
+          <ButtonContainer>
+            <Button style={{ width: 20 }} onClick={formik.submitForm}>
+              {t('button_next')}
+            </Button>
+          </ButtonContainer>
+        </InputContainer>
+      </Container>
+    </>
   );
 };
 
