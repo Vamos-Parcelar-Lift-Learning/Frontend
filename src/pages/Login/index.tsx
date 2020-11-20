@@ -1,10 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
 import { Imgs } from '../../assets';
+import HeaderButton  from '../../components/HeaderButton';
 import { loginValidationSchema } from './loginValidationSchema';
 import { useAuth } from '../../hooks/auth';
+import colors from '../../styles/colors';
 // import { useToast } from '../../hooks/toast';
 
 import {
@@ -15,6 +18,7 @@ import {
   InputLabelContainer,
   ButtonContainer,
   Wrapper,
+  Header,
   BoxContainer
 } from './styles';
 
@@ -64,6 +68,7 @@ const LoginPage: React.FC = () => {
         />
         <InputLabelContainer>Senha:</InputLabelContainer>
         <InputForm
+          type="password"
           value={formik.values.password}
           name="Password"
           placeholder="Digite sua senha"

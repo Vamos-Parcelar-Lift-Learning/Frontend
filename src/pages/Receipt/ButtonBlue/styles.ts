@@ -12,7 +12,7 @@ export const Button = styled.button`
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 26px;
   margin-top: 10px;
   &:hover {

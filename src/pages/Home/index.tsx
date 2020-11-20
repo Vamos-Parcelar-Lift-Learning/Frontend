@@ -9,16 +9,19 @@ import { Icons } from '../../assets';
 import { CARD_DATA } from '../../components/CardLandingPage/CardsData';
 import { useCart } from '../../hooks/cart';
 import { useToast } from '../../hooks/toast';
+import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
   ContainerCard,
+  ContainerButtonHeader,
   LeftContainer,
   RightContainer,
   Logo,
   Title,
   InfoTitle,
   Header,
+  UserLabel,
   WrapperLogo,
   WrapperInputSearch,
   WrapperTitle
@@ -29,6 +32,9 @@ const Home: React.FC = () => {
   const { addToast } = useToast();
   const history = useHistory();
   const [searchLocator, setSearchLocator] = useState('');
+
+  const { user } = useAuth();
+  console.log('userHome', user);
 
   const handleLocator = useCallback(async () => {
     try {
@@ -82,9 +88,14 @@ const Home: React.FC = () => {
           <Link to="/about_us">
             <span>{t('about')}</span>
           </Link>
-          <Link to="/login">
-            <HeaderButton name="login" label={t('login')} />
-          </Link>
+          <ContainerButtonHeader>
+            {user && (
+              <UserLabel>{`Olá ${user.name.split(' ', 1)} !`}</UserLabel>
+            )}
+            <Link to="/login">
+              <HeaderButton name="login" label={t('login')} />
+            </Link>
+          </ContainerButtonHeader>
         </Header>
 
         <ContainerCard>

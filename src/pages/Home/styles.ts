@@ -58,6 +58,22 @@ const Header = styled.div`
   }
 `;
 
+const ContainerButtonHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: ${colors.grayDark}; */
+`;
+
+const UserLabel = styled.label`
+  letter-spacing: -0.52px;
+  font-size: 15px;
+  margin-left: 20px;
+  /* font-weight: bold; */
+  color: ${colors.secondary};
+`;
+
 const Logo = styled.img`
   width: 170px;
 `;
@@ -124,13 +140,15 @@ const ContainerCard = styled.div`
 export {
   ContainerCard,
   Container,
+  ContainerButtonHeader,
   Title,
   InfoTitle,
   Logo,
   LeftContainer,
   RightContainer,
   Header,
+  UserLabel,
   WrapperLogo,
   WrapperInputSearch,
-  WrapperTitle,
+  WrapperTitle
 };

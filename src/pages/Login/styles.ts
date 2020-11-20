@@ -27,8 +27,8 @@ const InputLabelContainer = styled.div`
 
 const ImgContainer = styled.img`
   display: flex;
-  margin-top: 30px;
-  margin-bottom: 5px;
+  margin-top: 40px;
+  margin-bottom: 10px;
   width: 170px;
   align-items: flex-start;
 `;
@@ -41,7 +41,7 @@ const InputContainer = styled.div`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 42px;
+  margin-top: 40px;
   align-items: center;
 `;
 
@@ -49,8 +49,34 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-right: 100px;
   height: 100%;
   width: 100%;
+`;
+
+const Header = styled.div`
+  display: flex;
+  padding: 0px;
+  align-self: flex-start;
+  justify-content: flex-start;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  height: 100%;
+  background: ${colors.PRIMARY};
+  padding: 20px;
+  /* overflow: auto; */
+`;
+
+const BoxContainer = styled.div`
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 60px;
+  padding: 40px;
+
+  background: ${colors.fontPrimary};
 `;
 
 export {
@@ -59,24 +85,11 @@ export {
   InputContainer,
   ImgContainer,
   InputLabelContainer,
-  ButtonContainer
+  ButtonContainer,
+  Header,
+  Wrapper,
+  BoxContainer
+
 };
 
-export const Wrapper = styled.div`
-  display: flex;
-  height: 100%;
-  background: ${colors.PRIMARY};
-  padding: 20px;
-  /* overflow: auto; */
-`;
 
-export const BoxContainer = styled.div`
-  display: flex;
-  height: 100%;
-  width: 100%;
-  margin-right: 10px;
-  border-radius: 60px;
-  padding: 40px;
-
-  background: ${colors.fontPrimary};
-`;
