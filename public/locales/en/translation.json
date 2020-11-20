@@ -38,5 +38,6 @@
   "debitconsultationbutton": "Proceed",
   "paymentoriginalvalue": "Original value:",
   "paymentfinalvalue": "Final value:",
-  "paymentbutton": "Pay up"
+  "paymentbutton": "Pay up",
+  "debitsearchlocator": "Insert the locator code"
 }

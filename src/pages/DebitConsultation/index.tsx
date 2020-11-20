@@ -46,7 +46,7 @@ const { t } = useTranslation();
       <InputLocatorContainer>
         <InputSearch
           name="InputSearch"
-          placeholder="Insira o código localizador"
+          placeholder={t('debitsearchlocator')}
           onClick={handleLocator}
           value={searchLocator}
           onChange={setSearchLocator}

@@ -38,5 +38,7 @@
   "debitconsultationbutton": "Seguir",
   "paymentoriginalvalue": "Valor original:",
   "paymentfinalvalue": "Valor final:",
-  "paymentbutton": "Pagar"
+  "paymentbutton": "Pagar",
+  "debitsearchlocator": "Insira o código localizador"
+
 }
