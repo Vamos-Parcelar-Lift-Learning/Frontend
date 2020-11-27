@@ -39,6 +39,14 @@
   "paymentoriginalvalue": "Valor original:",
   "paymentfinalvalue": "Valor final:",
   "paymentbutton": "Pagar",
-  "debitsearchlocator": "Insira o código localizador"
-
+  "debitsearchlocator": "Insira o código localizador",
+  "home_card_1": "Escolha o que você quer pagar",
+  "home_card_2": "Pague com o Pix",
+  "home_card_3": "Receba Cashback",
+  "side_bar_debit": "Consulta de Débito",
+  "side_bar_vouchers": "Comprovantes",
+  "side_bar_profile": "Editar Perfil",
+  "side_bar_exit": "Sair",
+  "key_type": "Tipo de chave",
+  "cart_key": "Chave"
 }

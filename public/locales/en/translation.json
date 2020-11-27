@@ -39,5 +39,14 @@
   "paymentoriginalvalue": "Original value:",
   "paymentfinalvalue": "Final value:",
   "paymentbutton": "Pay up",
-  "debitsearchlocator": "Insert the locator code"
+  "debitsearchlocator": "Insert the locator code",
+  "home_card_1": "Choose what you want to pay",
+  "home_card_2": "Pay using Pix",
+  "home_card_3": "Receive Cashback",
+  "side_bar_debit": "Debit Inquiry",
+  "side_bar_vouchers": "Vouchers",
+  "side_bar_profile": "Edit Prodile",
+  "side_bar_exit": "Exit",
+  "key_type": "Key type",
+  "cart_key": "Key"
 }
