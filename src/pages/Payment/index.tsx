@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Header, PaymentModal, SelectInput, CartInput } from '../../components';
+import { Button, Header, PaymentModal, SelectInput, CartInput, PaymentSucess, PaymentFail } from '../../components';
 import CARD_PIX from '../../assets/card_pix.svg';
 
 import {
@@ -21,6 +21,8 @@ import {
 const Payment: React.FC = () => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
+  const [openSucess, setOpenSucess] = useState(false);
+  const [openFail, setOpenFail] = useState(false);
 
   return (
     <Container>
@@ -30,9 +32,9 @@ const Payment: React.FC = () => {
           <Title>PIX</Title>
           <CardPix src={CARD_PIX} />
           <SelectContainer>
-            <TitleCard>Tipo de chave:</TitleCard>
+            <TitleCard>{t('key_type')}</TitleCard>
             <SelectInput />
-            <TitleCard>Chave</TitleCard>
+            <TitleCard>{t('cart_key')}</TitleCard>
             <CartInput  />
           </SelectContainer>
 
@@ -58,11 +60,15 @@ const Payment: React.FC = () => {
         <TitleField style={{ fontWeight: 'bold' }}>R$ 790,00</TitleField>
       </CardContainer>
 
-      <Button name="Pay" style={{ marginTop: 20 }} onClick={() => setOpen(true)}>
+      <Button name="Pay" style={{ marginTop: 20 }} onClick={() => setOpenSucess(true)}>
         {t('paymentbutton')}
       </Button>
 
       <PaymentModal open={open} setOpen={setOpen} />
+
+      <PaymentSucess open={openSucess} setOpen={setOpenSucess} />
+
+      <PaymentFail open={openFail} setOpen={setOpenFail} />
 
     </Container>
   );

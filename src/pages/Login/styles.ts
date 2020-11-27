@@ -57,6 +57,7 @@ const Header = styled.div`
   padding: 0px;
   align-self: flex-start;
   justify-content: flex-start;
+  align-items: center;
 `;
 
 const Wrapper = styled.div`

@@ -39,10 +39,11 @@ const { t } = useTranslation();
     }
   }, [history, getLocator, searchLocator, addToast]);
 
-
   return (
     <Container>
-      <Header />
+      {user &&(
+        <Header />
+      )}
       <InputLocatorContainer>
         <InputSearch
           name="InputSearch"

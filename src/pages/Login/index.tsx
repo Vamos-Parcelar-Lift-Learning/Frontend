@@ -69,32 +69,30 @@ const LoginPage: React.FC = () => {
             name="home"
             label="Voltar"
           />
-          <Button
-            style={{color: colors.PRIMARY,
-                background: 'transparent',
-                padding: 0,
-                margin: 10,
-                borderColor: colors.PRIMARY,
-                width: 'auto'}}
-            onClick={() => changeLanguage('en')}
-          >
-            English
-
-          </Button>
-          <Button
-            style={{color: colors.PRIMARY,
-                background: 'transparent',
-                padding: 0,
-                margin: 10,
-                borderColor: colors.PRIMARY,
-                width: 'auto'}}
-            onClick={() => changeLanguage('pt')}
-          >
-            Português
-
-          </Button>
-
         </Link>
+        <Button
+          style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+          onClick={() => changeLanguage('en')}
+        >
+          English
+
+        </Button>
+        <Button
+          style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+          onClick={() => changeLanguage('pt')}
+        >
+          Português
+        </Button>
       </Header>
       <Container>
 

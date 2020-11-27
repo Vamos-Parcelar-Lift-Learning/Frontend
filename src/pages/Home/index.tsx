@@ -37,7 +37,6 @@ const Home: React.FC = () => {
   const [searchLocator, setSearchLocator] = useState('');
 
   const { user } = useAuth();
-  console.log('userHome', user);
 
   const handleLocator = useCallback(async () => {
     try {
@@ -117,18 +116,20 @@ const Home: React.FC = () => {
             <span>{t('about')}</span>
           </Link>
           <ContainerButtonHeader>
-            {user && (
+            {user ? (
               <UserLabel>{`Olá ${user.name.split(' ', 1)} !`}</UserLabel>
+            ):(
+              <Link to="/login">
+                <HeaderButton name="login" label={t('login')} />
+              </Link>
             )}
-            <Link to="/login">
-              <HeaderButton name="login" label={t('login')} />
-            </Link>
+
           </ContainerButtonHeader>
         </Header>
 
         <ContainerCard>
           {CARD_DATA.map(card => (
-            <CardLandingPage key={card.id} text={card.title} icon={card.img} />
+            <CardLandingPage key={card.id} text={t(card.title)} icon={card.img} />
           ))}
         </ContainerCard>
       </RightContainer>
