@@ -5,7 +5,7 @@ describe('Debit', () =>{
     cy.visit('http://localhost:3000/login')
     cy.get('input[name=User]').type("telmo61@yahoo.com")
     cy.get('input[name=Password]').type("725650")
-    cy.get('.MuiButtonBase-root').click()
+    cy.get('button[name=NextLogin').click()
 
     cy.url().should('include', '/debit_consultation')
     cy.url().should('eq', 'http://localhost:3000/debit_consultation')

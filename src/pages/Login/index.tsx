@@ -124,7 +124,7 @@ const LoginPage: React.FC = () => {
             hasError={formik.touched.password && formik.errors.password}
           />
           <ButtonContainer>
-            <Button style={{ width: 20 }} onClick={formik.submitForm}>
+            <Button name="NextLogin" style={{ width: 20 }} onClick={formik.submitForm}>
               {t('button_next')}
             </Button>
           </ButtonContainer>
