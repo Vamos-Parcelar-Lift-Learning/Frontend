@@ -58,7 +58,6 @@ const Payment: React.FC = () => {
         <TitleField style={{ fontWeight: 'bold' }}>R$ 790,00</TitleField>
       </CardContainer>
 
-
       <Button name="Pay" style={{ marginTop: 20 }} onClick={() => setOpen(true)}>
         {t('paymentbutton')}
       </Button>
