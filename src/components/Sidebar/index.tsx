@@ -11,7 +11,7 @@ import { Icons } from '../../assets';
 
 const Sidebar: React.FC = () => {
 
-  const { i18n } = useTranslation();
+  const {t, i18n } = useTranslation();
 
   const changeLanguage = (language: string) => {
     i18n.changeLanguage(language);
@@ -33,7 +33,7 @@ const Sidebar: React.FC = () => {
                 key={item.id}
                 style={{ textDecoration: 'none' }}
               >
-                <SidebarButton title={item.title} onClick={signOut} />
+                <SidebarButton title={t(item.title)} onClick={signOut} />
               </Link>
             );
 
@@ -45,7 +45,7 @@ const Sidebar: React.FC = () => {
                 key={item.id}
                 style={{ textDecoration: 'none' }}
               >
-                <SidebarButton title={item.title} />
+                <SidebarButton title={t(item.title)} />
               </Link>
             );
 
