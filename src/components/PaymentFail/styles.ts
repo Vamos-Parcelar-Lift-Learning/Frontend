@@ -25,8 +25,20 @@ export const Info = styled.span`
   width: 85%;
 `;
 
-
 export const FailImage = styled.img`
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  right: 30%;
+  top: 0;
+`;
+
+export const Text = styled.span`
+  border: 0;
+  font-size: 18px;
+`;
+
+export const CheckImage = styled.img`
   width: 70px;
   height: 70px;
   position: absolute;

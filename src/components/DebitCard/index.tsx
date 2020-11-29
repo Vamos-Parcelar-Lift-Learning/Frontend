@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { ExpandMore } from '@material-ui/icons';
 import { Collapse } from '@material-ui/core';
 import clsx from 'clsx';
 import { format, parseISO } from 'date-fns';
+import find from 'lodash/find';
+import { useCart } from '../../hooks/cart';
 import {
   CardDebit,
   CardContainer,
@@ -22,13 +24,26 @@ interface DebitCardProps {
 const DebitCard: React.FC<DebitCardProps> = ({ bill }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
-  const [selected, setSelected] = useState(false);
+  const { addBill, removeBill, bills } = useCart();
+
+  const handleCheck = useCallback((checked: boolean)=>{
+    if(checked){
+      addBill(bill);
+    }else{
+      removeBill(bill);
+    }
+  }, [bill, removeBill, addBill]);
 
   return (
     <CardDebit>
       <CardContainer>
         <InfoContainer style={{ flex: 1 }}>
-          <CardCheckbox checked={selected} name="checkCard" color="default" onChange={(e)=>setSelected(e.target.checked)} />
+          <CardCheckbox
+            checked={!!find(bills, (item)=> item.code === bill.code)}
+            name="checkCard"
+            color="default"
+            onChange={(e) => handleCheck(e.target.checked)}
+          />
           <CardTitle>{bill.name}</CardTitle>
         </InfoContainer>
 

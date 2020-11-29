@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button, Header, PaymentModal, SelectInput, CartInput, PaymentSucess, PaymentFail } from '../../components';
-import CARD_PIX from '../../assets/card_pix.svg';
+import {
+  Button,
+  Header,
+  SelectInput,
+  CartInput,
+  PaymentModal,
+  PaymentSucess,
+  PaymentFail,
+} from '../../components';
 
+import CARD_PIX from '../../assets/card_pix.svg';
+import { useCart } from '../../hooks/cart'
+import { useAuth } from '../../hooks/auth'
 import {
   Container,
   Title,
@@ -23,6 +33,17 @@ const Payment: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [openSucess, setOpenSucess] = useState(false);
   const [openFail, setOpenFail] = useState(false);
+  const { bills } = useCart();
+  const { user } = useAuth();
+
+  const amount = useMemo(()=>{
+    let total = 0;
+    bills.forEach(item=>{
+      total +=item.amonut
+    })
+
+    return total;
+  }, [bills]);
 
   return (
     <Container>
@@ -42,14 +63,14 @@ const Payment: React.FC = () => {
             <ValueText>
               {t('paymentoriginalvalue')}
             </ValueText>
-            <ValueText>R$ 180,00</ValueText>
+            <ValueText>{`R$ ${amount},00`}</ValueText>
           </ValueContainer>
         </Card>
       </CardContainer>
       <CardContainer>
         <TitleField>Cashback</TitleField>
         <FieldContainer>
-          <FieldValue>R$ 10,00</FieldValue>
+          <FieldValue>{`R$ ${user.cashback},00`}</FieldValue>
         </FieldContainer>
       </CardContainer>
 
@@ -57,10 +78,10 @@ const Payment: React.FC = () => {
       <CardContainer>
         <TitleField>{t('paymentfinalvalue')}</TitleField>
 
-        <TitleField style={{ fontWeight: 'bold' }}>R$ 790,00</TitleField>
+        <TitleField style={{ fontWeight: 'bold' }}>{`R$ ${amount - user.cashback},00`}</TitleField>
       </CardContainer>
 
-      <Button name="Pay" style={{ marginTop: 20 }} onClick={() => setOpenSucess(true)}>
+      <Button name="Pay" style={{ marginTop: 20 }} onClick={() => setOpen(true)}>
         {t('paymentbutton')}
       </Button>
 

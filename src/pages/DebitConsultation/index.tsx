@@ -11,17 +11,24 @@ import { useToast } from '../../hooks/toast';
 const DebitConsultation: React.FC = () => {
   const { user } = useAuth();
   const history = useHistory();
-  const { getLocator, locator } = useCart();
+  const { getLocator, locator, bills } = useCart();
   const { addToast } = useToast();
   const [searchLocator, setSearchLocator] = useState('');
 
   const handleNext = useCallback(() => {
-    if (user) {
+    if(bills.length === 0){
+      addToast({
+        type: 'info',
+        title: 'Ops',
+        description: 'Nenhum débito selecionado'
+      });
+    }
+    else if (user) {
       history.push('/payment');
     } else {
       history.push('/login', { nextRoute: '/payment' });
     }
-  }, [history, user]);
+  }, [history, user, bills, addToast]);
 
 
 const { t } = useTranslation();
