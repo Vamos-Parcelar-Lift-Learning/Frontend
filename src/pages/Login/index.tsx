@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import get from 'lodash/get';
 import colors from '../../styles/colors';
 import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
@@ -9,7 +10,7 @@ import { Imgs } from '../../assets';
 import HeaderButton  from '../../components/HeaderButton';
 import { loginValidationSchema } from './loginValidationSchema';
 import { useAuth } from '../../hooks/auth';
-// import { useToast } from '../../hooks/toast';
+import { useToast } from '../../hooks/toast';
 
 import {
   Container,
@@ -30,12 +31,31 @@ interface FormikValue {
 
 const LoginPage: React.FC = () => {
   const { signIn } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const { addToast } = useToast();
+
+  const nextRoute = get(location, 'state.nextRoute', null);
+
 
   const submitLogin = async (data: FormikValue) => {
-    await signIn({
-      email: data.email,
-      password: data.password
-    });
+    try{
+      await signIn({
+        email: data.email,
+        password: data.password,
+      });
+      if(nextRoute){
+        history.push(nextRoute);
+      }else{
+        history.push('debit_consultation');
+      }
+    }catch(err){
+      addToast({
+        type: 'error',
+        title: 'Ops',
+        description: err.response.data.msg
+      });
+    }
   };
 
   const formik = useFormik({

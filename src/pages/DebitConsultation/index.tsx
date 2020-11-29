@@ -9,10 +9,9 @@ import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 
 const DebitConsultation: React.FC = () => {
-  const { locator } = useCart();
   const { user } = useAuth();
   const history = useHistory();
-  const { getLocator } = useCart();
+  const { getLocator, locator } = useCart();
   const { addToast } = useToast();
   const [searchLocator, setSearchLocator] = useState('');
 
@@ -20,7 +19,7 @@ const DebitConsultation: React.FC = () => {
     if (user) {
       history.push('/payment');
     } else {
-      history.push('/login');
+      history.push('/login', { nextRoute: '/payment' });
     }
   }, [history, user]);
 
