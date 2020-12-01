@@ -4,10 +4,11 @@ import { ContainerSearchButton, IconSearch } from './styles';
 
 interface SearchButtonProps {
   onClick: () => void;
+  name: string;
 }
-const SearchButton: React.FC<SearchButtonProps> = ({ onClick }) => {
+const SearchButton: React.FC<SearchButtonProps> = ({ onClick, name }) => {
   return (
-    <ContainerSearchButton onClick={onClick}>
+    <ContainerSearchButton name={name} onClick={onClick}>
       <IconSearch src={Icons.ICON_SEARCH} />
     </ContainerSearchButton>
   );

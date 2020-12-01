@@ -9,6 +9,12 @@ describe('Debit', () =>{
 
     cy.url().should('include', '/debit_consultation')
     cy.url().should('eq', 'http://localhost:3000/debit_consultation')
+
+    cy.get('input[name=InputSearch]').type("7P1PMX")
+    cy.get('button[name=ButtonLocator').click()
+
+    cy.get('input[name=checkCard').first().click()
+
     cy.get('button[name=ToPayment').click()
 
     cy.url().should('eq', 'http://localhost:3000/payment')

@@ -24,3 +24,11 @@ export const Info = styled.span`
   line-height: 40px;
   width: 85%;
 `;
+
+export const QrCode = styled.img`
+  width: 14vw;
+  height: 14vw;
+  position: absolute;
+  right: 35.5%;
+  top: 35px;
+`;

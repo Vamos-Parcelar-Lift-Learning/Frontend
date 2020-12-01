@@ -29,7 +29,7 @@ const Button: React.FC<ButtonProps> = ({
       }}
       onClick={onClick}
     >
-      {loading ? <Loading style={{ width: 25, height: 25 }} /> : children}
+      {loading ? <Loading style={{ width: 23, height: 23 }} /> : children}
     </ButtonContainer>
   );
 };
