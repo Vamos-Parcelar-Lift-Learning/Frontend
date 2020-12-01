@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import InputUI from '@material-ui/core/Input';
 
 import colors from '../../styles/colors';
 
@@ -15,6 +16,13 @@ export const CardContainer = styled.div`
   flex-direction: column;
   margin-top: 2vh;
   padding: 0px 5vw;
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  margin-right: 20px;
 `;
 
 export const Card = styled.div`
@@ -93,4 +101,16 @@ export const TitleCard = styled.span`
   color: white;
   text-align: left;
   margin-bottom: 5px;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
+export const Input = styled(InputUI)`
+  &&{
+    font-size: 18px;
+  }
 `;

@@ -5,16 +5,16 @@ import { Container, SelectButton } from './styles';
 
 interface SelectInputPros{
   style?:any
+  onChange:any;
 }
 
-const SelectInput: React.FC<SelectInputPros> = ({...rest}) => {
+const SelectInput: React.FC<SelectInputPros> = ({onChange, ...rest}) => {
   return (
     <Container {...rest}>
       <SelectButton
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        // value={age}
-        // onChange={handleChange}
+        onChange={v => onChange(v.target.value)}
         disableUnderline
         SelectDisplayProps={{
           style: {

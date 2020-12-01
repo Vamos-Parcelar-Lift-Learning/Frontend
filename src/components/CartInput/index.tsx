@@ -5,14 +5,16 @@ import { Container, InputButton } from './styles';
 
 interface SelectInputPros{
   style?:any
+  value: string;
+  onChange:any;
 }
 
-const CartInput: React.FC<SelectInputPros> = ({...rest}) => {
+const CartInput: React.FC<SelectInputPros> = ({value, onChange, ...rest}) => {
   return (
     <Container {...rest}>
       <InputButton
-        // value={age}
-        // onChange={handleChange}
+        value={value}
+        onChange={v => onChange(v.target.value)}
         InputProps={{
           style: {
             backgroundColor: 'transparent',

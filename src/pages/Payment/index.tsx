@@ -27,12 +27,18 @@ import {
   FieldContainer,
   FieldValue,
   TitleCard,
-  SelectContainer
+  SelectContainer,
+  Row,
+  InputContainer,
+  Input
 } from './styles';
 import api from '../../services/api';
 
 const Payment: React.FC = () => {
   const { t } = useTranslation();
+  const [key_type, setKeyType] = useState('');
+  const [key, setKey] = useState('');
+  const [nickname, setNickname] = useState('');
   const [open, setOpen] = useState(false);
   const [openSucess, setOpenSucess] = useState(false);
   const [openFail, setOpenFail] = useState(false);
@@ -55,18 +61,16 @@ const Payment: React.FC = () => {
     try{
       setLoading(true);
       const body = {
-        key: "Giseli99@bol.com.br",
-	      cashback: 0,
+        key,
+	      cashback: user.cashback,
         transaction: {
-          nickname: "asd",
+          nickname,
           bills: bills.map((item)=>({...item, amount: item.amonut}))
     	  }
       }
       const response = await api.post('transactions/', body);
       setTransaction(response.data);
-      setLoading(false);
       setOpen(true);
-
     }catch(err){
       addToast({
         type: 'error',
@@ -74,7 +78,8 @@ const Payment: React.FC = () => {
         description: 'Não foi possível efetuar o pagamento'
       });
     }
-  },[bills, addToast])
+    setLoading(false);
+  },[bills, addToast, key, user, nickname])
 
   return (
     <Container>
@@ -85,9 +90,9 @@ const Payment: React.FC = () => {
           <CardPix src={CARD_PIX} />
           <SelectContainer>
             <TitleCard>{t('key_type')}</TitleCard>
-            <SelectInput />
+            <SelectInput onChange={setKeyType} />
             <TitleCard>{t('cart_key')}</TitleCard>
-            <CartInput  />
+            <CartInput onChange={setKey} value={key} />
           </SelectContainer>
 
           <ValueContainer>
@@ -98,12 +103,26 @@ const Payment: React.FC = () => {
           </ValueContainer>
         </Card>
       </CardContainer>
-      <CardContainer>
-        <TitleField>Cashback</TitleField>
-        <FieldContainer>
-          <FieldValue>{`R$ ${user.cashback},00`}</FieldValue>
-        </FieldContainer>
-      </CardContainer>
+
+      <Row>
+        <InputContainer>
+          <TitleField>Cashback</TitleField>
+          <FieldContainer>
+            <FieldValue>{`R$ ${user.cashback},00`}</FieldValue>
+          </FieldContainer>
+        </InputContainer>
+
+        <InputContainer>
+          <TitleField>Apelido</TitleField>
+          <FieldContainer style={{ paddingLeft: 20}}>
+            <Input
+              disableUnderline
+              onChange={v => setNickname(v.target.value)}
+              value={nickname}
+            />
+          </FieldContainer>
+        </InputContainer>
+      </Row>
 
 
       <CardContainer>
