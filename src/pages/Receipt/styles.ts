@@ -24,19 +24,19 @@ export const Title = styled.h1`
 `;
 export const FirstRowInfo = styled.div`
   display: flex;
-  width: 100%;
+  width: 75vh;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 200px;
+  justify-content: space-around;
 `;
 
 export const SecondRowInfo = styled.div`
   display: flex;
-  width: 100%;
+  width: 75vh;
   flex-direction: row;
-  justify-content: space-between;
-  padding: 0 150px;
-  margin: 70px;
+  align-items: flex-flex-start;
+  justify-content: space-around;
+  margin-top: 70px;
+  margin-bottom: 70px;
 `;
 
 export const ContainerButtons = styled.div`
