@@ -8,7 +8,6 @@ export const Container = styled.div`
   background-color: white;
   border-radius: 20px;
   align-items: center;
-  justify-content: space-between;
   padding: 20px;
 `;
 
@@ -25,10 +24,15 @@ export const Info = styled.span`
   width: 85%;
 `;
 
-export const QrCode = styled.img`
-  width: 14vw;
-  height: 14vw;
+export const CheckImage = styled.img`
+  width: 70px;
+  height: 70px;
   position: absolute;
-  right: 35.5%;
-  top: 35px;
+  right: 30%;
+  top: 0;
+`;
+
+export const Text = styled.span`
+  border: 0;
+  font-size: 18px;
 `;

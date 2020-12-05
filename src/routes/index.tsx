@@ -9,20 +9,26 @@ import EditProfile from '../pages/EditProfile';
 import Payment from '../pages/Payment';
 import LoginPage from '../pages/Login';
 import AboutUs from '../pages/AboutUs';
+import { useAuth } from '../hooks/auth';
 
 
-const Routes: React.FC = () => (
-  <Switch>
-    <Route path="/" exact component={Home} />
-    <Route path="/login" component={LoginPage}  />
-    <Route path="/about_us" component={AboutUs} />
-    <Route path="/debit_consultation" component={DebitConsultation} hasSidebar isPrivate />
-    <Route path="/receipt" component={ReceiptList} hasSidebar isPrivate />
-    <Route path="/receiptDetail" component={Receipt} hasSidebar isPrivate />
-    <Route path="/edit_profile" component={EditProfile} hasSidebar isPrivate />
-    <Route path="/payment" component={Payment} hasSidebar isPrivate />
-    {/* <Route path="/home" component={Home} isPrivate /> */}
-  </Switch>
+const Routes: React.FC = () => {
+  const { user } = useAuth();
+
+  return(
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/login" exact component={LoginPage}  />
+      <Route path="/debit_consultation" component={DebitConsultation} hasSidebar={!!user}  />
+      <Route path="/receipt" component={ReceiptList} hasSidebar={!!user} isPrivate />
+      <Route path="/receiptDetail" component={Receipt} hasSidebar={!!user} isPrivate />
+      <Route path="/edit_profile" component={EditProfile} hasSidebar={!!user} isPrivate />
+      <Route path="/payment" component={Payment} hasSidebar={!!user} isPrivate />
+      <Route path="/about_us" component={AboutUs} hasSidebar={!!user} isPrivate />
+      {/* <Route path="/home" component={Home} isPrivate /> */}
+    </Switch>
 );
+}
+;
 
 export default Routes;

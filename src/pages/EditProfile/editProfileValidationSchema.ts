@@ -6,9 +6,9 @@ export const editProfileValidationSchema = yup.object().shape({
   name: yup
     .string()
     .min(3, 'Nome não pode conter menos de 3 caracteres')
-    .required('Nome incorreto. Digite seu nome novamente!'),
+    .required('Nome obrigatório. Digite seu nome por gentileza'),
   cpf: yup
     .string()
-    .required('Senha incorreta. Digite sua senha novamente!')
-    .matches(regCpf)
+    .required('CPF obrigatório. Digite seu CPF por gentileza ')
+    .matches(regCpf, 'CPF inválido')
 });

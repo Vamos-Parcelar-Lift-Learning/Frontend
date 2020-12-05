@@ -1,16 +1,16 @@
 import React from 'react';
 import { Dialog, LinearProgress } from '@material-ui/core';
-import get from 'lodash/get'
-import { Container, PaymentImage, Info, QrCode } from './styles';
+import { Container, PaymentImage, Info, CheckImage, Text } from './styles';
 import PAYMENT_QRCODE from '../../assets/payment_qrcode.svg';
+import {Imgs} from '../../assets'
+import Button from '../Button'
 
 interface PaymentModalProps {
   setOpen: (open: boolean) => void;
   open: boolean;
-  qrCode: string;
 }
 
-const PaymentModal: React.FC<PaymentModalProps> = ({ open, setOpen, qrCode }) => {
+const PaymentSucess: React.FC<PaymentModalProps> = ({ open, setOpen }) => {
   return (
     <Dialog
       id="PaymentQRCODE"
@@ -20,20 +20,19 @@ const PaymentModal: React.FC<PaymentModalProps> = ({ open, setOpen, qrCode }) =>
       PaperProps={{ style: { maxWidth: '100%', borderRadius: 20 } }}
     >
       <Container>
-
-        <QrCode src={qrCode} />
+        <CheckImage src={Imgs.CHECK_PAYMENT} />
         <PaymentImage src={PAYMENT_QRCODE} />
-        <div style={{ width: '80%', marginTop: 20 }}>
-          <LinearProgress />
-        </div>
 
         <Info>
-          Utilize seu aparelho celular para fazer a leitura do Qrcode acima,
-          efetue o pagamento e aguarde.
+          Pagamento realizado com sucesso!
         </Info>
+
+        <Button style={{marginTop: 30}} onClick={()=>{}}>
+          <Text>Acessar comprovante</Text>
+        </Button>
       </Container>
     </Dialog>
   );
 };
 
-export default PaymentModal;
+export default PaymentSucess;

@@ -1,6 +1,5 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 
-import { useHistory } from 'react-router-dom';
 import api from '../services/api';
 import { useToast } from './toast';
 
@@ -40,7 +39,6 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
   const { addToast } = useToast();
-  const history = useHistory();
 
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@VPOnline:token');
@@ -57,7 +55,6 @@ const AuthProvider: React.FC = ({ children }) => {
 
   const signIn = useCallback(
     async ({ email, password }) => {
-      try {
         const response = await api.post('sessions', { email, password });
 
         const { token, user } = response.data;
@@ -74,16 +71,8 @@ const AuthProvider: React.FC = ({ children }) => {
           title: 'Ótimo',
           description: 'Login realizado com sucesso'
         });
-        history.push('debit_consultation');
-      } catch (err) {
-        addToast({
-          type: 'error',
-          title: 'Ops',
-          description: err.response.data.msg
-        });
-      }
     },
-    [history, addToast]
+    [addToast]
   );
 
   const signOut = useCallback(() => {

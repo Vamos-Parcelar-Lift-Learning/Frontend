@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import InputUI from '@material-ui/core/Input';
 
 import colors from '../../styles/colors';
 
@@ -17,11 +18,19 @@ export const CardContainer = styled.div`
   padding: 0px 5vw;
 `;
 
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 2vh;
+  margin-right: 20px;
+`;
+
 export const Card = styled.div`
   width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 `;
 
 export const Title = styled.span`
@@ -75,4 +84,33 @@ export const FieldValue = styled.span`
   color: ${colors.grayLight};
   font-weight: 500;
   text-align: left;
+`;
+
+export const SelectContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 30px;
+`;
+
+export const TitleCard = styled.span`
+  font-size: 15px;
+  color: white;
+  text-align: left;
+  margin-bottom: 5px;
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
+export const Input = styled(InputUI)`
+  &&{
+    font-size: 18px;
+  }
 `;

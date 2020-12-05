@@ -1,28 +1,37 @@
 import React, { useCallback, useState } from 'react';
 import {  useHistory } from 'react-router-dom';
-import { Button, DebitCard, Header} from '../../components';
-import InputSearch from '../../components/InputSearch';
+import { useTranslation } from 'react-i18next';
+import { Button, DebitCard, Header } from '../../components';
 import { Container, ListContainer, Title, InputLocatorContainer } from './styles';
+import InputSearch from '../../components/InputSearch';
 import { useCart } from '../../hooks/cart';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
 
 const DebitConsultation: React.FC = () => {
-  const { locator } = useCart();
   const { user } = useAuth();
   const history = useHistory();
-  const { getLocator } = useCart();
+  const { getLocator, locator, bills } = useCart();
   const { addToast } = useToast();
   const [searchLocator, setSearchLocator] = useState('');
 
   const handleNext = useCallback(() => {
-    if (user) {
+    if(bills.length === 0){
+      addToast({
+        type: 'info',
+        title: 'Ops',
+        description: 'Nenhum débito selecionado'
+      });
+    }
+    else if (user) {
       history.push('/payment');
     } else {
-      history.push('/login');
+      history.push('/login', { nextRoute: '/payment' });
     }
-  }, [history, user]);
+  }, [history, user, bills, addToast]);
 
+
+const { t } = useTranslation();
   const handleLocator = useCallback(async () => {
     try {
       await getLocator(searchLocator);
@@ -38,27 +47,27 @@ const DebitConsultation: React.FC = () => {
 
   return (
     <Container>
-      <Header />
+      {user &&(
+        <Header />
+      )}
       <InputLocatorContainer>
         <InputSearch
           name="InputSearch"
-          placeholder="Insira o código localizador"
+          placeholder={t('debitsearchlocator')}
           onClick={handleLocator}
           value={searchLocator}
           onChange={setSearchLocator}
         />
-
       </InputLocatorContainer>
-
-      <Title>Débitos rastreados</Title>
+      <Title>{t('debitconsultationtitle')}</Title>
       <ListContainer>
         {locator?.locators?.bills && locator?.locators?.bills.map(bill => (
           <DebitCard key={bill.code} bill={bill} />
         ))}
       </ListContainer>
 
-      <Button style={{ marginTop: 20 }} onClick={handleNext}>
-        Seguir
+      <Button name="ToPayment" style={{ marginTop: 20 }} onClick={handleNext}>
+        {t('debitconsultationbutton')}
       </Button>
     </Container>
   );

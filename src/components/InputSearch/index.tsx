@@ -25,7 +25,7 @@ const InputSearch: React.FC<LabelInputSearch> = ({
         onChange={v => onChange(v.target.value)}
         value={value}
       />
-      <Button onClick={onClick} />
+      <Button name="ButtonLocator" onClick={onClick} />
     </Container>
   );
 };

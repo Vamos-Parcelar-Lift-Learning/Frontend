@@ -1,45 +1,29 @@
 /// <reference types = "cypress"/>
 
-describe('LandingPage', () =>{
 
-  it('deve pesquisar uma rota nao existe e retornar falha', () =>{
-    cy.visit('http://localhost:3000')
-    cy.get('[name=InputSearch]').type("7P1TMX");
-
-    cy.server();
-    cy.route("GET", "**/locators").as("searchLocalizador")
-
-    cy.get('.sc-crrsfI').click()
-    cy.url().should('include', '/debit_consultation')
-    cy.url().should('eq', 'http://localhost:3000/debit_consultation')
-
-
-  });
-
-
-  it('deve pesquisar o localizador e retornar com sucesso a pagina de consulta de debitos', () =>{
-    cy.visit('http://localhost:3000')
-    cy.get('[name=InputSearch]').type("7P1PMX");
+describe('LandingPage', () => {
+  it('deve pesquisar o localizador', () => {
+    cy.visit(Cypress.env('BASE_URL'));
+    cy.get('[name=InputSearch]').type(Cypress.env('LOCATOR'));
 
     cy.server();
-    cy.route("GET", "**/locators").as("searchLocalizador")
+    cy.route('GET', '**/locators').as('searchLocalizador');
 
-    cy.get('.sc-crrsfI').click()
-    cy.url().should('include', '/debit_consultation')
-    cy.url().should('eq', 'http://localhost:3000/debit_consultation')
+    cy.get('.sc-fFubgz').click();
+    cy.url().should('include', Cypress.env('DEBITS_PATH'));
+    cy.url().should('eq', Cypress.env('DEBITS_URL'));
 
+    // cy.wait('@searchLocalizador').then((xhr) =>{
+    //   expect(xhr.status).be.eq(200);
+    // })
   });
 
-  it('deve retornar a rota get', () =>{
+  it('deve fazer pesquisa', () => {
     cy.request({
-      method:'GET',
-      url:'http://localhost:3000/debit_consultation'
-    }).then(response =>{
+      method: 'GET',
+      url: Cypress.env('DEBITS_URL')
+    }).then(response => {
       cy.log(response.body);
-    })
+    });
   });
-
 });
-
-
-

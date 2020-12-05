@@ -1,14 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
+import get from 'lodash/get';
+import colors from '../../styles/colors';
 import InputForm from '../../components/InputForm';
 import Button from '../../components/Button';
 import { Imgs } from '../../assets';
 import HeaderButton  from '../../components/HeaderButton';
 import { loginValidationSchema } from './loginValidationSchema';
 import { useAuth } from '../../hooks/auth';
-import colors from '../../styles/colors';
-// import { useToast } from '../../hooks/toast';
+import { useToast } from '../../hooks/toast';
 
 import {
   Container,
@@ -18,8 +20,8 @@ import {
   InputLabelContainer,
   ButtonContainer,
   Wrapper,
-  Header,
-  BoxContainer
+  BoxContainer,
+  Header
 } from './styles';
 
 interface FormikValue {
@@ -29,12 +31,31 @@ interface FormikValue {
 
 const LoginPage: React.FC = () => {
   const { signIn } = useAuth();
+  const location = useLocation();
+  const history = useHistory();
+  const { addToast } = useToast();
+
+  const nextRoute = get(location, 'state.nextRoute', null);
+
 
   const submitLogin = async (data: FormikValue) => {
-    await signIn({
-      email: data.email,
-      password: data.password
-    });
+    try{
+      await signIn({
+        email: data.email,
+        password: data.password,
+      });
+      if(nextRoute){
+        history.push(nextRoute);
+      }else{
+        history.push('debit_consultation');
+      }
+    }catch(err){
+      addToast({
+        type: 'error',
+        title: 'Ops',
+        description: err.response.data.msg
+      });
+    }
   };
 
   const formik = useFormik({
@@ -50,56 +71,84 @@ const LoginPage: React.FC = () => {
     onSubmit: submitLogin
   });
 
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
+
   return (
-    <Wrapper>
-      <BoxContainer>
-        <Header>
-          <Link to="/">
-            <HeaderButton
-              style={{color: colors.PRIMARY,
+    <>
+      <Header>
+        <Link to="/">
+          <HeaderButton
+            style={{color: colors.PRIMARY,
                 background: colors.fontPrimary,
                 borderColor: colors.PRIMARY,
                 width: 80}}
-              name="home"
-              label="Voltar"
-            />
-          </Link>
-        </Header>
-        <Container>
-          <TitleContainer>Digite seus dados de Login</TitleContainer>
-          <ImgContainer src={Imgs.LOGIN_IMAGE} />
+            name="home"
+            label="Voltar"
+          />
+        </Link>
+        <Button
+          style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+          onClick={() => changeLanguage('en')}
+        >
+          English
 
-          <InputContainer>
-            <InputLabelContainer>Usuário:</InputLabelContainer>
-            <InputForm
-              name="User"
-              value={formik.values.email}
-              placeholder="Digite seu e-mail"
-              onChange={value => {
+        </Button>
+        <Button
+          style={{color: colors.PRIMARY,
+                background: 'transparent',
+                padding: 0,
+                margin: 10,
+                borderColor: colors.PRIMARY,
+                width: 'auto'}}
+          onClick={() => changeLanguage('pt')}
+        >
+          Português
+        </Button>
+      </Header>
+      <Container>
+
+        <TitleContainer>{t('titlelogin')}</TitleContainer>
+        <ImgContainer src={Imgs.LOGIN_IMAGE} />
+
+        <InputContainer>
+          <InputLabelContainer>{t('user')}</InputLabelContainer>
+          <InputForm
+            name="User"
+            value={formik.values.email}
+            placeholder={t('user_email')}
+            onChange={value => {
             formik.setFieldValue('email', value.target.value);
           }}
-              hasError={formik.touched.email && formik.errors.email}
-            />
-            <InputLabelContainer>Senha:</InputLabelContainer>
-            <InputForm
-              type="password"
-              value={formik.values.password}
-              name="Password"
-              placeholder="Digite sua senha"
-              onChange={value => {
+            hasError={formik.touched.email && formik.errors.email}
+          />
+          <InputLabelContainer>{t('password')}</InputLabelContainer>
+          <InputForm
+            type="password"
+            value={formik.values.password}
+            name="Password"
+            placeholder={t('user_password')}
+            onChange={value => {
             formik.setFieldValue('password', value.target.value);
           }}
-              hasError={formik.touched.password && formik.errors.password}
-            />
-            <ButtonContainer>
-              <Button style={{ width: 20 }} onClick={formik.submitForm}>
-                Seguir
-              </Button>
-            </ButtonContainer>
-          </InputContainer>
-        </Container>
-      </BoxContainer>
-    </Wrapper>
+            hasError={formik.touched.password && formik.errors.password}
+          />
+          <ButtonContainer>
+            <Button name="NextLogin" style={{ width: 20 }} onClick={formik.submitForm}>
+              {t('button_next')}
+            </Button>
+          </ButtonContainer>
+        </InputContainer>
+      </Container>
+    </>
   );
 };
 

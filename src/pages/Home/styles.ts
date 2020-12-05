@@ -44,7 +44,7 @@ const Header = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
   padding: 10px;
   span {
@@ -56,6 +56,22 @@ const Header = styled.div`
     margin-left: 50px;
     color: #f5f7fe;
   }
+`;
+
+const ContainerButtonHeader = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: ${colors.grayDark}; */
+`;
+
+const UserLabel = styled.label`
+  letter-spacing: -0.52px;
+  font-size: 15px;
+  margin-left: 20px;
+  /* font-weight: bold; */
+  color: ${colors.secondary};
 `;
 
 const Logo = styled.img`
@@ -124,13 +140,15 @@ const ContainerCard = styled.div`
 export {
   ContainerCard,
   Container,
+  ContainerButtonHeader,
   Title,
   InfoTitle,
   Logo,
   LeftContainer,
   RightContainer,
   Header,
+  UserLabel,
   WrapperLogo,
   WrapperInputSearch,
-  WrapperTitle,
+  WrapperTitle
 };

@@ -27,6 +27,7 @@
     "i18next": "^19.8.3",
     "i18next-browser-languagedetector": "^6.0.1",
     "i18next-http-backend": "^1.0.21",
+    "lodash": "^4.17.20",
     "luxon": "^1.25.0",
     "moment": "^2.29.1",
     "react": "^17.0.1",
@@ -52,6 +53,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "tests": "yarn run cypress open",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -68,11 +70,13 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.165",
     "@types/react-calendar": "^3.1.2",
     "@types/styled-components": "^5.1.4",
     "@types/yup": "^0.29.9",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
+    "cypress": "^5.6.0",
     "dotenv": "^8.2.0",
     "eslint": "^7.12.0",
     "eslint-config-airbnb": "^18.2.0",
