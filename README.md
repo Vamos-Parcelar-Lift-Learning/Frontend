@@ -30,7 +30,7 @@
 É possivel acessar a versão mais estavel da aplicação de forma rápida, simples e fácil. Basta acessar a demo da aplicação no Heroku clicando na imagem a baixo.
   <p align="center">
     <a href="https://pix-lift-learning-vp.herokuapp.com/" target="_blank">
-    <img alt="Demo on Heroku" src="demo_on_heroku.png"></a>
+    <img alt="Demo on Heroku" src="./public/assets/imgs/demo_on_heroku.png"></a>
   </p>
 </p>
 
