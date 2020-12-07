@@ -7,7 +7,7 @@
 
 [Vamos-Parcelar-Lift-Learning](https://vamosparcelar.com.br/blog/vamos-parcelar-e-escolhida-para-o-lift-learning/).
 
-  <p>Este repositório contempla as seguintes funcinalidaes:</p>
+  <p>Este repositório contempla as seguintes funcinalidades:</p>
 
 - Pesquisar contas por código localizador;
 - Realizar log in;
