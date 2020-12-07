@@ -71,7 +71,7 @@ e acessar o endereço http://localhost:3000/
 
 ## Como rodar os testes
 
-Caso seja necessário executar teste na aplicação, é necessário executar o [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress.html#Opening-Cypress)
+Caso seja necessário executar teste na aplicação, é preciso utilizar o [Cypress](https://docs.cypress.io/guides/getting-started/installing-cypress.html#Opening-Cypress)
 
 ```bash
 # Abra os testes da aplicação
