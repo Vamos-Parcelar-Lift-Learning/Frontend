@@ -32,6 +32,10 @@ const Receipt: React.FC = () => {
     receiptItem.cashback_generated = formatPrice(
       receiptItem.cashback_generated
     );
+    receiptItem.created_at = new Date(
+      receiptItem.created_at
+    ).toLocaleDateString();
+
     setReceipt(receiptItem);
   }, [location]);
 

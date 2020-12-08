@@ -18,16 +18,15 @@ const ReceiptList: React.FC = () => {
   const [dataReceipts, setDataReceipt] = useState<any[]>([]);
 
   useEffect(() => {
-    // const response = api.get('/transactions')
-    // console.log('response', response)
     api.get('transactions').then(response => {
-      setDataReceipt(response.data);
+      const formatResp = response.data.map((receipt: { created_at: any }) => ({
+        ...receipt,
+        created_at: new Date(receipt.created_at).toLocaleDateString()
+      }));
+      setDataReceipt(formatResp);
     });
   }, []);
-  // const cityNames = response.data.map(city => city.nome);
-  // setCities(cityNames)
 
-  console.log('dataReceipt', dataReceipts);
   return (
     <Container>
       <Header />
@@ -47,14 +46,9 @@ const ReceiptList: React.FC = () => {
             amount: React.ReactNode;
           }) => (
             <ReceiptItems key={receipt._id}>
-              {/* <td>{Number(receipt.created_at)?.toLocaleDateString()}</td> */}
-              <td>{receipt.created_at?.toLocaleString()}</td>
+              <td>{receipt.created_at}</td>
               <td>{receipt.nickname}</td>
               <td>{receipt.amount}</td>
-              {/* <td>{receipt.amount}</td> */}
-              {/* <Link to="/receiptDetail">
-              <Button>{t('receiptlistbutton')}</Button>
-            </Link> */}
               <Link
                 to={{
                   pathname: '/receiptDetail',
