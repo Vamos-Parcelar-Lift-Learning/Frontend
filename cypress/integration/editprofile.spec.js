@@ -1,29 +1,35 @@
 /// <reference types = "cypress"/>
 
 describe('LandingPage', () =>{
-  // it('deve tentar fazer login o e falhar', () =>{
-  //   cy.visit('http://localhost:3000/login')
-  //   cy.get(':nth-child(2) > .sc-hlTvYk').type("telmo60@yahoo.com")
-  //   cy.get(':nth-child(4) > .sc-hlTvYk').type("725630")
-  //   cy.get('.MuiButtonBase-root').click()
+  it('deve tentar fazer login o e falhar', () =>{
+    cy.visit(Cypress.env('LOGIN_URL'));
+    cy.url().should('include', Cypress.env('LOGIN_PATH'));
+    cy.contains('Digite seus dados de Login')
 
-  //   cy.url().should('include', '/debit_consultation')
-  //   cy.url().should('eq', 'http://localhost:3000/debit_consultation')
+    cy.get('input[name=User]').type(Cypress.env('LOGIN_USER_ERROR'));
+    cy.get('input[name=Password]').type(Cypress.env('LOGIN_PW_ERROR'));
 
-  // });
-  // it('deve tentar editar o perfil e falhar', () =>{
+    cy.wait(5);
+    cy.get('button[name=NextLogin]').click();
 
-  //   cy.get('[href="/edit_profile"] > .sc-pFZIQ > .sc-jrAGrp').click()
-  //   cy.url().should('include', '/edit_profile')
-  //   cy.url().should('eq', 'http://localhost:3000/edit_profile')
+    cy.wait(10);
+    //cy.get('.sc-gsTCUz').contains('Ops');
+    cy.url().should('eq', Cypress.env('LOGIN_URL'));
 
-  //   cy.get('.sc-fvhGYg > .sc-eLgOdN > .sc-hlTvYk').clear()
-  //   cy.get('.sc-fvhGYg > .sc-eLgOdN > .sc-hlTvYk').type("Fulano Ciclano")
-  //   cy.get(':nth-child(4) > .sc-hlTvYk').clear()
-  //   cy.get(':nth-child(4) > .sc-hlTvYk').type("43256316184")
+  });
+  it('deve tentar editar o perfil e falhar', () =>{
 
-  //   cy.get('.MuiButton-root').click()
-  // });
+    cy.contains("Edit").click()
+    cy.url().should('include', '/edit_profile')
+    cy.url().should('eq', 'http://localhost:3000/edit_profile')
+
+    cy.get('input[name=Name]').clear()
+    cy.get('input[name=Name]').type("Fulano Ciclano")
+    cy.get('input[name=CPF]').clear()
+    cy.get('input[name=CPF]').type("43256316184")
+
+    cy.get('button[name=NextEdit]').click()
+  });
 
 
   it('deve fazer login', () =>{
