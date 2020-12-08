@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PrintProvider, { Print, NoPrint } from 'react-easy-print';
-import {
-  Link,
-  RouteComponentProps,
-  useHistory,
-  useLocation,
-  useParams
-} from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MdReceipt } from 'react-icons/md';
 import { useTranslation } from 'react-i18next';
 import colors from '../../styles/colors';
@@ -19,17 +13,11 @@ import {
   ContainerButtons,
   FisrtButtonsContainer
 } from './styles';
+import { formatPrice } from '../../utils/format';
 import Header from '../../components/Header';
 import DataReceipt from './DataReceipt';
 import ButtonWhite from './ButtonWhite';
 import ButtonBlue from './ButtonBlue';
-
-interface IProps {
-  match: RouteComponentProps<any>['match'];
-  history: {
-    location: RouteComponentProps<any>['history']['location'];
-  };
-}
 
 const Receipt: React.FC = () => {
   const [receipt, setReceipt] = useState<any>();
@@ -39,7 +27,11 @@ const Receipt: React.FC = () => {
   };
   const location: any = useLocation();
   useEffect(() => {
-    const receiptItem = location.state.receiptDetail;
+    const receiptItem = location?.state.receiptDetail;
+    receiptItem.amount = formatPrice(receiptItem.amount);
+    receiptItem.cashback_generated = formatPrice(
+      receiptItem.cashback_generated
+    );
     setReceipt(receiptItem);
   }, [location]);
 
