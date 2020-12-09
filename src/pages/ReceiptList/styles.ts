@@ -24,6 +24,7 @@ export const Table = styled.table`
     justify-content: space-between;
     align-items: center;
   }
+  overflow-y: scroll;
 `;
 
 export const ReceiptItems = styled.tr`
