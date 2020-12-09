@@ -28,7 +28,7 @@ const Receipt: React.FC = () => {
   const location: any = useLocation();
   useEffect(() => {
     const receiptItem = location?.state.receiptDetail;
-    receiptItem.amount = formatPrice(receiptItem.amount);
+    receiptItem.bills[0].amount = formatPrice(receiptItem.bills[0].amount);
     receiptItem.cashback_generated = formatPrice(
       receiptItem.cashback_generated
     );
@@ -52,17 +52,26 @@ const Receipt: React.FC = () => {
             <>
               <FirstRowInfo>
                 <DataReceipt label={t('payday')} data={receipt.created_at} />
-                <DataReceipt label={t('locator_code')} data="P7913F" />
+                <DataReceipt
+                  label={t('locator_code')}
+                  data={receipt.bills[0].code}
+                />
                 <DataReceipt
                   label={t('cashback')}
                   data={receipt.cashback_generated}
                 />
               </FirstRowInfo>
               <SecondRowInfo>
-                <DataReceipt label={t('total_account')} data={receipt.amount} />
+                <DataReceipt
+                  label={t('total_account')}
+                  data={receipt.bills[0].amount}
+                />
                 <DataReceipt label={t('discount')} data="R$ 0" />
                 <DataReceipt label={t('total_service')} data="R$ 0" />
-                <DataReceipt label={t('total_payment')} data={receipt.amount} />
+                <DataReceipt
+                  label={t('total_payment')}
+                  data={receipt.bills[0].amount}
+                />
               </SecondRowInfo>
             </>
           )}

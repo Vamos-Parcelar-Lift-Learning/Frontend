@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
+// import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import api from '../../services/api';
-
+import { formatPrice } from '../../utils/format';
 import {
   Container,
   Table,
   Title,
   HeaderTr,
   ReceiptItems,
-  Button
+  Button,
+  Scroll
 } from './styles';
 import Header from '../../components/Header';
 
@@ -19,10 +22,16 @@ const ReceiptList: React.FC = () => {
 
   useEffect(() => {
     api.get('transactions').then(response => {
-      const formatResp = response.data.map((receipt: { created_at: any }) => ({
-        ...receipt,
-        created_at: new Date(receipt.created_at).toLocaleDateString()
-      }));
+      const formatResp = response.data.map(
+        (receipt: {
+          created_at: string | number | Date;
+          amount: number | bigint;
+        }) => ({
+          ...receipt,
+          created_at: new Date(receipt.created_at).toLocaleDateString(),
+          amount: formatPrice(receipt.amount)
+        })
+      );
       setDataReceipt(formatResp);
     });
   }, []);
@@ -35,7 +44,7 @@ const ReceiptList: React.FC = () => {
         <HeaderTr>
           <th>{t('receiptlistdata')}</th>
           <th>{t('receiptlistname')}</th>
-          <th>{t('receiptlistvalue')}</th>
+          <th style={{ marginRight: 90 }}>{t('receiptlistvalue')}</th>
           <th> </th>
         </HeaderTr>
         {dataReceipts?.map(
