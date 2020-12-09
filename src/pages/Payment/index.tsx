@@ -62,7 +62,7 @@ const Payment: React.FC = () => {
       const response = await api.get(`transactions/${id}/`);
       if(response.data.status === 'approved'){
         setOpen(false);
-        setOpenSucess(true);
+        setOpenSucess(true)
       }
     }catch(err){
       addToast({
