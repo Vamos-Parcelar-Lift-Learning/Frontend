@@ -1,42 +1,40 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+// import PerfectScrollbar from 'react-perfect-scrollbar';
+import { Scrollbars } from 'react-custom-scrollbars';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-
+import api from '../../services/api';
+import { formatPrice } from '../../utils/format';
 import {
   Container,
   Table,
   Title,
   HeaderTr,
   ReceiptItems,
-  Button
+  Button,
+  Scroll
 } from './styles';
 import Header from '../../components/Header';
 
-const receipts = [
-  {
-    name: 'ContaXablau',
-    date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00'
-  },
-  {
-    name: 'ContaXablau',
-    date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00'
-  },
-  {
-    name: 'ContaXablau',
-    date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00'
-  },
-  {
-    name: 'ContaXablau',
-    date: '18/06/2020 11:30',
-    amount: 'R$ 790, 00'
-  }
-];
-
 const ReceiptList: React.FC = () => {
   const { t } = useTranslation();
+  const [dataReceipts, setDataReceipt] = useState<any[]>([]);
+
+  useEffect(() => {
+    api.get('transactions').then(response => {
+      const formatResp = response.data.map(
+        (receipt: {
+          created_at: string | number | Date;
+          amount: number | bigint;
+        }) => ({
+          ...receipt,
+          created_at: new Date(receipt.created_at).toLocaleDateString(),
+          amount: formatPrice(receipt.amount)
+        })
+      );
+      setDataReceipt(formatResp);
+    });
+  }, []);
 
   return (
     <Container>
@@ -46,21 +44,33 @@ const ReceiptList: React.FC = () => {
         <HeaderTr>
           <th>{t('receiptlistdata')}</th>
           <th>{t('receiptlistname')}</th>
-          <th>{t('receiptlistvalue')}</th>
+          <th style={{ marginRight: 90 }}>{t('receiptlistvalue')}</th>
           <th> </th>
         </HeaderTr>
-        {receipts.map(receipt => (
-          <ReceiptItems key={receipt.name}>
-            <td>{receipt.date}</td>
-            <td>{receipt.name}</td>
-            <td>{receipt.amount}</td>
-            {/* <td>{receipt.amount}</td> */}
-            <Link to="/receiptDetail">
-              {/* <Link to={`/receipt/${encodeURIComponent(receipt.name)}`}> */}
-              <Button>{t('receiptlistbutton')}</Button>
-            </Link>
-          </ReceiptItems>
-        ))}
+        {dataReceipts?.map(
+          (receipt: {
+            _id: string | number | null | undefined;
+            created_at: React.ReactNode;
+            nickname: React.ReactNode;
+            amount: React.ReactNode;
+          }) => (
+            <ReceiptItems key={receipt._id}>
+              <td>{receipt.created_at}</td>
+              <td>{receipt.nickname}</td>
+              <td>{receipt.amount}</td>
+              <Link
+                to={{
+                  pathname: '/receiptDetail',
+                  state: {
+                    receiptDetail: receipt
+                  }
+                }}
+              >
+                <Button>{t('receiptlistbutton')}</Button>
+              </Link>
+            </ReceiptItems>
+          )
+        )}
       </Table>
     </Container>
   );
