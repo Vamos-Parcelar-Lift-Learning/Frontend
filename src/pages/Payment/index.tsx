@@ -60,7 +60,7 @@ const Payment: React.FC = () => {
   const getTransaction = useCallback(async (id)=>{
     try{
       const response = await api.get(`transactions/${id}/`);
-      if(response.data.status === 'pending'){
+      if(response.data.status === 'approved'){
         setOpen(false);
         setOpenSucess(true);
       }
