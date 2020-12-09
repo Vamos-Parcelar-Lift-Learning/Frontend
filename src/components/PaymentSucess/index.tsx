@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dialog, LinearProgress } from '@material-ui/core';
+import { Dialog } from '@material-ui/core';
 import { Container, PaymentImage, Info, CheckImage, Text } from './styles';
 import PAYMENT_QRCODE from '../../assets/payment_qrcode.svg';
 import {Imgs} from '../../assets'

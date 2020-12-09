@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 // import { TableCell, TableRow, TableHead } from '@material-ui/core';
-// import PerfectScrollbar from 'react-perfect-scrollbar';
+import PerfectScrollbar from 'react-perfect-scrollbar';
 import colors from '../../styles/colors';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 10px 30px;
+  padding: 10px 60px;
 `;
 
 export const Table = styled.table`
@@ -35,10 +35,12 @@ export const ReceiptItems = styled.tr`
   color: ${colors.grayDark};
   td {
     font-family: 'Montserrat';
-    font-style: normal;
+    width: 25%;
     font-weight: 500;
     font-size: 15px;
     line-height: 24px;
+    align-items: flex-start;
+    margin-right: 50px;
   }
 `;
 
@@ -80,4 +82,10 @@ export const Button = styled.button`
   border-radius: 60px;
   padding: 5px 20px;
   cursor: pointer;
+`;
+
+export const Scroll = styled(PerfectScrollbar)`
+  max-height: 260px;
+  /* height: 260px; */
+  padding: 5px 15px;
 `;

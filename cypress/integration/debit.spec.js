@@ -2,7 +2,7 @@
 
 describe('Debit', () =>{
   it('deve visualizar o qrcode', () =>{
-    cy.visit('http://localhost:3000/login')
+    cy.visit(Cypress.env('LOGIN_URL'));
     cy.get('input[name=User]').type(Cypress.env('LOGIN_USER'));
     cy.get('input[name=Password]').type(Cypress.env('LOGIN_PW'));
     cy.get('button[name=NextLogin]').click()
