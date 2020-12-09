@@ -2,7 +2,7 @@
 
 describe('Debit', () =>{
   it('deve visualizar o qrcode', () =>{
-    cy.visit('http://localhost:3000/login')
+    cy.visit(`${process.env.REACT_APP_API_URL}/login`)
     cy.get('input[name=User]').type("telmo61@yahoo.com")
     cy.get('input[name=Password]').type("725650")
     cy.get('button[name=NextLogin').click()

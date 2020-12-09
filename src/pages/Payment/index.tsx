@@ -57,6 +57,22 @@ const Payment: React.FC = () => {
     return total;
   }, [bills]);
 
+  const getTransaction = useCallback(async (id)=>{
+    try{
+      const response = await api.get(`transactions/${id}/`);
+      if(response.data.status === 'pending'){
+        setOpen(false);
+        setOpenSucess(true);
+      }
+    }catch(err){
+      addToast({
+        type: 'error',
+        title: 'Ops',
+        description: 'Não foi possível verificar os status de pagamento'
+      });
+    }
+  },[addToast]);
+
   const handlePayment = useCallback(async ()=>{
     try{
       setLoading(true);
@@ -71,6 +87,7 @@ const Payment: React.FC = () => {
       const response = await api.post('transactions/', body);
       setTransaction(response.data);
       setOpen(true);
+      setTimeout(()=> getTransaction(response.data.code), 8000);
     }catch(err){
       addToast({
         type: 'error',
@@ -79,7 +96,7 @@ const Payment: React.FC = () => {
       });
     }
     setLoading(false);
-  },[bills, addToast, key, user, nickname])
+  },[bills, addToast, key, user, nickname, getTransaction])
 
   return (
     <Container>
