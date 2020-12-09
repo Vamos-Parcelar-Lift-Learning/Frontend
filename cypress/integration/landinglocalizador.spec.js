@@ -1,14 +1,15 @@
 /// <reference types = "cypress"/>
 
+
 describe('LandingPage', () => {
   it('deve pesquisar o localizador', () => {
     cy.visit(Cypress.env('BASE_URL'));
-    cy.get('.sc-bqyKva').type(Cypress.env('LOCATOR'));
+    cy.get('[name=InputSearch]').type(Cypress.env('LOCATOR'));
 
     cy.server();
     cy.route('GET', '**/locators').as('searchLocalizador');
 
-    cy.get('.sc-crrsfI').click();
+    cy.get('.sc-fFubgz').click();
     cy.url().should('include', Cypress.env('DEBITS_PATH'));
     cy.url().should('eq', Cypress.env('DEBITS_URL'));
 

@@ -58,6 +58,7 @@ const Sidebar: React.FC = () => {
                 margin: 10,
                 borderColor: colors.fontPrimary,
                 width: 'auto'}}
+            name="ENbutton"
             onClick={() => changeLanguage('en')}
           >
             English
@@ -70,6 +71,7 @@ const Sidebar: React.FC = () => {
                 margin: 10,
                 borderColor: colors.fontPrimary,
                 width: 'auto'}}
+            name="PTbutton"
             onClick={() => changeLanguage('pt')}
           >
             Português

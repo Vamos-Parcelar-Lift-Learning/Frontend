@@ -104,7 +104,7 @@ const EditProfile: React.FC = () => {
           hasError={formik.touched.birthdate && formik.errors.birthdate}
         />
       </ContainerName>
-      <Button onClick={formik.submitForm}>{t('savebutton')}</Button>
+      <Button name="NextEdit" onClick={formik.submitForm}>{t('savebutton')}</Button>
     </Container>
   );
 };

@@ -133,6 +133,7 @@ const Payment: React.FC = () => {
           <TitleField>Apelido</TitleField>
           <FieldContainer style={{ paddingLeft: 20}}>
             <Input
+              name="Apelido"
               disableUnderline
               onChange={v => setNickname(v.target.value)}
               value={nickname}
