@@ -13,7 +13,7 @@ export const ContainerImage = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
-  padding: 25px;
+  padding: 1%;
   align-items: center;
 `;
 
@@ -21,7 +21,7 @@ export const SubContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: left;
-  padding: 25px;
+  padding: 2%;
 `;
 
 export const ContainerName = styled.div`
@@ -29,7 +29,7 @@ export const ContainerName = styled.div`
   padding-left: 3px;
   display: flex;
   flex-direction: column;
-  margin-right: 850px;
+  margin-right: 800px;
   align-items: left;
   white-space: nowrap;
   flex: 1;
@@ -40,7 +40,7 @@ export const ContainerNameField = styled.div`
   padding-left: 3px;
   display: flex;
   flex-direction: column;
-  margin-right: 850px;
+  margin-right: 800px;
   align-items: left;
   white-space: nowrap;
   flex: 0.25;
@@ -50,7 +50,7 @@ export const ContainerField = styled.div`
   width: 500px;
   display: flex;
   flex-direction: column;
-  margin-right: 850px;
+  margin-right: 8%;
   align-items: left;
   white-space: nowrap;
   flex: 0.12;
