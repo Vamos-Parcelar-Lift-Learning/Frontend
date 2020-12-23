@@ -29,13 +29,9 @@ const Receipt: React.FC = () => {
   console.log(location)
   useEffect(() => {
     const receiptItem = location?.state.receiptDetail;
-    receiptItem.bills[0].amount = formatPrice(receiptItem.bills[0].amount);
     receiptItem.cashback_generated = formatPrice(
       receiptItem.cashback_generated
     );
-    receiptItem.created_at = new Date(
-      receiptItem.created_at
-    ).toLocaleDateString();
 
     setReceipt(receiptItem);
   }, [location]);
@@ -59,19 +55,19 @@ const Receipt: React.FC = () => {
                 />
                 <DataReceipt
                   label={t('cashback')}
-                  data={receipt.cashback_used}
+                  data={receipt.cashback_generated}
                 />
               </FirstRowInfo>
               <SecondRowInfo>
                 <DataReceipt
                   label={t('total_account')}
-                  data={receipt.bills[0].amount}
+                  data={receipt.amount}
                 />
                 <DataReceipt label={t('discount')} data="R$ 0" />
                 <DataReceipt label={t('total_service')} data="R$ 0" />
                 <DataReceipt
                   label={t('total_payment')}
-                  data={receipt.bills[0].amount}
+                  data={receipt.amount}
                 />
               </SecondRowInfo>
             </>
