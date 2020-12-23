@@ -1,5 +1,6 @@
 import React from 'react';
 import { Dialog } from '@material-ui/core';
+import {  useHistory } from 'react-router-dom';
 import { Container, PaymentImage, Info, CheckImage, Text } from './styles';
 import PAYMENT_QRCODE from '../../assets/payment_qrcode.svg';
 import {Imgs} from '../../assets'
@@ -8,9 +9,12 @@ import Button from '../Button'
 interface PaymentModalProps {
   setOpen: (open: boolean) => void;
   open: boolean;
+  receiptDetail: any
 }
 
-const PaymentSucess: React.FC<PaymentModalProps> = ({ open, setOpen }) => {
+const PaymentSucess: React.FC<PaymentModalProps> = ({ open, setOpen, receiptDetail }) => {
+  const history = useHistory();
+
   return (
     <Dialog
       id="PaymentQRCODE"
@@ -27,7 +31,12 @@ const PaymentSucess: React.FC<PaymentModalProps> = ({ open, setOpen }) => {
           Pagamento realizado com sucesso!
         </Info>
 
-        <Button style={{marginTop: 30}} onClick={()=>{}}>
+        <Button
+          style={{marginTop: 30}}
+          onClick={()=>{
+          history.push('/receiptDetail', { receiptDetail });
+        }}
+        >
           <Text>Acessar comprovante</Text>
         </Button>
       </Container>
