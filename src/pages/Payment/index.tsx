@@ -155,7 +155,7 @@ const Payment: React.FC = () => {
 
       <PaymentModal qrCode={get(transaction, 'participant.qrcode', '')} open={open} setOpen={setOpen} />
 
-      <PaymentSucess open={openSucess} setOpen={setOpenSucess} />
+      <PaymentSucess open={openSucess} setOpen={setOpenSucess} receiptDetail={transaction} />
 
       <PaymentFail open={openFail} setOpen={setOpenFail} />
 

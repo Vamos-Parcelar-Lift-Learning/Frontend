@@ -26,6 +26,7 @@ const Receipt: React.FC = () => {
     window.print();
   };
   const location: any = useLocation();
+  console.log(location)
   useEffect(() => {
     const receiptItem = location?.state.receiptDetail;
     receiptItem.bills[0].amount = formatPrice(receiptItem.bills[0].amount);
@@ -58,7 +59,7 @@ const Receipt: React.FC = () => {
                 />
                 <DataReceipt
                   label={t('cashback')}
-                  data={receipt.cashback_generated}
+                  data={receipt.cashback_used}
                 />
               </FirstRowInfo>
               <SecondRowInfo>
