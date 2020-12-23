@@ -61,7 +61,7 @@ const { t } = useTranslation();
       </InputLocatorContainer>
       <Title>{t('debitconsultationtitle')}</Title>
       <ListContainer>
-        {locator?.locators?.bills && locator?.locators?.bills.map(bill => (
+        {locator?.bills && locator?.bills.map(bill => (
           <DebitCard key={bill.code} bill={bill} />
         ))}
       </ListContainer>

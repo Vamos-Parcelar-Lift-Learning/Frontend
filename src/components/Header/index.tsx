@@ -23,7 +23,7 @@ const Header: React.FC = () => {
     <Container>
       <IconDiv>
         <CardImage src={Icons.ICON_LOCALIZATOR} />
-        <TitleLocalization>{get(locator, 'locators.code', '')}</TitleLocalization>
+        <TitleLocalization>{get(locator, 'code', '')}</TitleLocalization>
       </IconDiv>
       <CashBackContainer>
         <CashBack>

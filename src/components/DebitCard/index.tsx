@@ -49,7 +49,7 @@ const DebitCard: React.FC<DebitCardProps> = ({ bill }) => {
 
         <InfoContainer>
           <CardTitle style={{ marginRight: 10 }}>
-            {`R$ ${bill.amonut},00`}
+            {`R$ ${bill.amount},00`}
           </CardTitle>
 
           <CollapseButton
