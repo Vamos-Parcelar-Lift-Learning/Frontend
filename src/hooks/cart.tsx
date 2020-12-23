@@ -7,14 +7,12 @@ interface Bill {
   description: string;
   issuer: string;
   // expiration_date: string;
-  amonut: number;
+  amount: number;
 }
 
 interface Locator {
-  locators: {
     code: string;
     bills: Bill[];
-  };
 }
 
 interface CartContextData {

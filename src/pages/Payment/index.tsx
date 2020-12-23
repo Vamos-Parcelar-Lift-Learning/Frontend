@@ -51,7 +51,7 @@ const Payment: React.FC = () => {
   const amount = useMemo(()=>{
     let total = 0;
     bills.forEach(item=>{
-      total +=item.amonut
+      total +=item.amount
     })
 
     return total;
@@ -81,7 +81,7 @@ const Payment: React.FC = () => {
 	      cashback: user.cashback,
         transaction: {
           nickname,
-          bills: bills.map((item)=>({...item, amount: item.amonut}))
+          bills
     	  }
       }
       const response = await api.post('transactions/', body);
