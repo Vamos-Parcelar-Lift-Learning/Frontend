@@ -9,7 +9,9 @@ import {
   PaymentModal,
   PaymentSucess,
   PaymentFail,
+
 } from '../../components';
+import InputForm from '../../components/InputForm';
 
 import CARD_PIX from '../../assets/card_pix.svg';
 import { useCart } from '../../hooks/cart'
@@ -33,12 +35,14 @@ import {
   Input
 } from './styles';
 import api from '../../services/api';
+import { formatPrice } from '../../utils/format';
 
 const Payment: React.FC = () => {
   const { t } = useTranslation();
   const [key_type, setKeyType] = useState('');
   const [key, setKey] = useState('');
   const [nickname, setNickname] = useState('');
+  const [cashback, setCashback] = useState('');
   const [open, setOpen] = useState(false);
   const [openSucess, setOpenSucess] = useState(false);
   const [openFail, setOpenFail] = useState(false);
@@ -78,7 +82,7 @@ const Payment: React.FC = () => {
       setLoading(true);
       const body = {
         key,
-	      cashback: user.cashback,
+	      cashback,
         transaction: {
           nickname,
           bills
@@ -124,8 +128,14 @@ const Payment: React.FC = () => {
       <Row>
         <InputContainer>
           <TitleField>Cashback</TitleField>
-          <FieldContainer>
-            <FieldValue>{`R$ ${user.cashback},00`}</FieldValue>
+          <FieldContainer style={{ paddingLeft: 20}}>
+            <Input
+              name="Cashback"
+              placeholder="R$ 0,00"
+              disableUnderline
+              onChange={v => setCashback(v.target.value)}
+              value={cashback}
+            />
           </FieldContainer>
         </InputContainer>
 
@@ -134,6 +144,7 @@ const Payment: React.FC = () => {
           <FieldContainer style={{ paddingLeft: 20}}>
             <Input
               name="Apelido"
+              placeholder="Digite seu apelido"
               disableUnderline
               onChange={v => setNickname(v.target.value)}
               value={nickname}
@@ -146,7 +157,7 @@ const Payment: React.FC = () => {
       <CardContainer>
         <TitleField>{t('paymentfinalvalue')}</TitleField>
 
-        <TitleField style={{ fontWeight: 'bold' }}>{`R$ ${amount - user.cashback},00`}</TitleField>
+        <TitleField style={{ fontWeight: 'bold' }}>{`R$ ${amount - Number(cashback)},00`}</TitleField>
       </CardContainer>
 
       <Button name="Pay" loading={loading} style={{ marginTop: 20 }} onClick={handlePayment}>

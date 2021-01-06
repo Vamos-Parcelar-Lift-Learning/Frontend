@@ -63,11 +63,11 @@ const Receipt: React.FC = () => {
                   label={t('total_account')}
                   data={receipt.amount}
                 />
-                <DataReceipt label={t('discount')} data="R$ 0" />
-                <DataReceipt label={t('total_service')} data="R$ 0" />
+                <DataReceipt label={t('discount')} data={`${formatPrice(receipt.cashback_used)}`} />
+                <DataReceipt label={t('total_service')} data="R$ 0,00" />
                 <DataReceipt
                   label={t('total_payment')}
-                  data={receipt.amount}
+                  data={formatPrice(receipt.total_payment- receipt.cashback_used)}
                 />
               </SecondRowInfo>
             </>
