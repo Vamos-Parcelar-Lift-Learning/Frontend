@@ -1,21 +1,19 @@
 import styled from 'styled-components';
 import colors from '../../styles/colors';
 
-const Wrapper = styled.div`
+const TitleContainer = styled.div`
   display: flex;
-  height: 100%;
-  background: ${colors.PRIMARY};
-  padding: 20px;
+  width: 100%;
+  flex-direction: column;
+  padding: 3%;
+  align-content: center;
+  text-align: center;
 `;
 
-const BoxContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  border-radius: 60px;
-  padding: 40px;
-  background: ${colors.fontPrimary};
+const Title = styled.span`
+  font-size: 20px;
+  color: ${colors.fontPrimary};
+  font-weight: 500;
 `;
 
 const Header = styled.div`
@@ -23,20 +21,37 @@ const Header = styled.div`
   padding: 0px;
   align-self: flex-start;
   justify-content: flex-start;
+  align-items: center;
 `;
-const ContentBoxContainer = styled.div`
+
+const ContainerCard = styled.div`
   display: flex;
-  flex-direction:column;
-  height: 100%;
-  width: 100%;
-  border-radius: 60px;
+  justify-content: space-around;
+  flex-direction: column;
+  align-self: center;
+  align-items:center;
+  flex: 1;
+`;
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  background: ${colors.PRIMARY};
+  height: 94.4%;
+  width: 50%;
+  border-radius: 40px;
+  margin: 50px;
+  padding: 1%;
+  align-items: center;
+
 `;
 
 export {
-  Wrapper,
-  BoxContainer,
+  TitleContainer,
   Header,
-  ContentBoxContainer,
+  ContainerCard,
+  Title,
+  RightContainer
 };
 
 

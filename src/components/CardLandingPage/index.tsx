@@ -4,13 +4,16 @@ import { LandingPageCard, CardText, CardImage } from './styles';
 interface LandingPageCard {
   text: string;
   icon: any;
+  link?: any;
 }
 
-const CardLandingPage: React.FC<LandingPageCard> = ({ text, icon }) => {
+const CardLandingPage: React.FC<LandingPageCard> = ({ text, icon, link }) => {
   return (
     <LandingPageCard>
       <CardImage src={icon} />
-      <CardText>{text}</CardText>
+      <a href={link}>
+        <CardText>{text}</CardText>
+      </a>
     </LandingPageCard>
   );
 };
