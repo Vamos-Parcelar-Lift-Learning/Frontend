@@ -68,10 +68,18 @@ const ContainerButtonHeader = styled.div`
 
 const UserLabel = styled.label`
   letter-spacing: -0.52px;
-  font-size: 15px;
+  font-size: 18px;
+  border-radius: 10px;
+  padding: 5px;
+  width: 80px;
   margin-left: 20px;
-  /* font-weight: bold; */
-  color: ${colors.secondary};
+  color: ${colors.PRIMARY};
+  background-color: ${colors.fontPrimary};
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+  &:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    font-size: 19px;
+  }
 `;
 
 const Logo = styled.img`

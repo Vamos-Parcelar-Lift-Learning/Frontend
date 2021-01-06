@@ -117,7 +117,9 @@ const Home: React.FC = () => {
           </Link>
           <ContainerButtonHeader>
             {user ? (
-              <UserLabel>{`Olá ${user.name.split(' ', 1)} !`}</UserLabel>
+              <Link to="/debit_consultation">
+                <UserLabel>{`Olá, ${user.name.split(' ', 1)}!`}</UserLabel>
+              </Link>
             ):(
               <Link to="/login">
                 <HeaderButton name="login" label={t('login')} />
