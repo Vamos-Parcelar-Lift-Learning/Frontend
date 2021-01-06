@@ -24,7 +24,7 @@ const Routes: React.FC = () => {
       <Route path="/receiptDetail" component={Receipt} hasSidebar={!!user} isPrivate />
       <Route path="/edit_profile" component={EditProfile} hasSidebar={!!user} isPrivate />
       <Route path="/payment" component={Payment} hasSidebar={!!user} isPrivate />
-      <Route path="/about_us" component={AboutUs} hasSidebar={!!user} isPrivate />
+      <Route path="/about_us" component={AboutUs} />
       {/* <Route path="/home" component={Home} isPrivate /> */}
     </Switch>
 );
