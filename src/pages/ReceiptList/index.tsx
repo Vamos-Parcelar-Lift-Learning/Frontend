@@ -29,7 +29,8 @@ const ReceiptList: React.FC = () => {
         }) => ({
           ...receipt,
           created_at: new Date(receipt.created_at).toLocaleDateString(),
-          amount: formatPrice(receipt.amount)
+          amount: formatPrice(receipt.amount),
+          total_payment: Number(receipt.amount)
         })
       );
       setDataReceipt(formatResp);
@@ -53,11 +54,13 @@ const ReceiptList: React.FC = () => {
             created_at: React.ReactNode;
             nickname: React.ReactNode;
             amount: React.ReactNode;
+            total_payment: any;
+            cashback_used: any;
           }) => (
             <ReceiptItems key={receipt._id}>
               <td>{receipt.created_at}</td>
               <td>{receipt.nickname}</td>
-              <td>{receipt.amount}</td>
+              <td>{formatPrice(receipt.total_payment- receipt.cashback_used)}</td>
               <Link
                 to={{
                   pathname: '/receiptDetail',
