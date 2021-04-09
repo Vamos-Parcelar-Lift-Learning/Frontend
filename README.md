@@ -22,7 +22,11 @@
 
 ## Status do Projeto:
 
-**Em desenvolvimento**
+**Concluído**
+
+## :clapper: Vídeo Demonstrativo
+
+[![Video demonstrando o fluxo da aplicação](http://img.youtube.com/vi/DpbOUYwPnUI/0.jpg)](http://www.youtube.com/watch?v=DpbOUYwPnUI "VP")
 
 ## Acesso ao Deploy do Projeto
 
